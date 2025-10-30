@@ -12,3 +12,25 @@ print(list_1[-1].title)
 # We can concatenate a string with an item from a list with the plus (+) symbol in a variable, then print it using print
 message = "I'm from " + list_1[0].title()
 print(message)
+# ----- Adding, altering and removing items from a list ----- #
+#Let's create another list and add some items to it
+list_2 = ["ducati", "yamaha", "honda"]
+print(list_2)
+# We can modify elements in a dynamic list like this
+list_2[0] = "honda"
+print(list_2)
+# --- Adding items to a list --- #
+# We can concatenate an item to a list to add items to it. The straightforward way to do it is by using the method .append('item_to_be_added')
+list_2.append('ducati')
+# We can also create an empty list and append items to it using the same method. It's simple
+list_3 = []
+list_3.append('ducati')
+list_3.append('honda')
+list_3.append('yamaha')
+print(list_3)
+# --- Inserting elements to a list --- #
+# We can also insert elements to a list using the method .insert(0*, 'item_to_be_added')
+# *we can define the position in the list where the item will be added
+list_3.insert(0, 'suzuki')
+# --- Deleting a known item from a list --- #
+# We can use the instruction del to delete an known positioned item from a list
