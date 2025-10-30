@@ -54,7 +54,7 @@ del list_3[1]
 # --- Using the method .pop() to remove items --- #
 # With the method .pop() we can still work with the item from the list,
 #  as it is stored in a variable. It will remove the last item from the list
-# If you define the indice of the item that you want to remove, you can
+# If you define the index of the item that you want to remove, you can
 #  remove the item in any position with the method .pop
 motorcycles_pop = list_3.pop()
 
