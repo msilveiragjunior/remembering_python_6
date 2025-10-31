@@ -94,3 +94,20 @@ values_2 = values[:]
 # This will not work: values_2 = values as we are only pointing to the
 # interpreter and, basically, saying that the second list should be
 # interpreted as the first list, so it will not be a separate copy
+
+# --- Tuples --- #
+# Tuples offer a way to store datasets of items that cannot be modified
+# We define tuples in the following form
+tuple_01 = (200, 50)
+print(tuple_01[0] + " " + tuple_01[1])
+# We cannot modify a tuple by simply redefining it's value like
+# tuple_01[0] = 400; this will not only not work, but will show
+# a TypeError, saying that a tuple does not support item
+# assignment
+# We cannot modify the single value of a tuple, but we can
+# redefine the tuple in itself
+tuple_01 = (400, 100)
+print(tuple_01[0] + " " + tuple_01[1])
+for x in tuple_01:
+    print(x + "\n")
+# This will print all values inside the tuple
