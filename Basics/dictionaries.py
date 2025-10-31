@@ -40,7 +40,7 @@ print(list_01)
 
 # --- What is a (set) --- #
 # A set is like a list, but it can only contain one value
-# of each information, for example a set of [0,1,0,1] would
+# of each information, for example a set of {0,1,0,1} would
 # contain only the numbers 0 and 1 if printed
 user_0['rename'] = 'fermi'
 print(set(sorted(user_0.values(), reverse=True)))
