@@ -17,6 +17,7 @@ for x in values_01:
         print("Not Even")
 # We can also use the operator and for using more than one condition in a if
 # test
+
 # --- Check if an object is in a list --- #
 if 5 in values_01:
     print("It is inside the list")
@@ -38,3 +39,26 @@ elif age < 18 and age > 14:
     print("Age between 14 but less than 18")
 else:
     print("Age higher or equal than 18")
+# The elif condition lets you add another condition to the if loop
+# Lets remember to use if-elif-else only when we want a condition
+# to stop the loop. If we want to check if anything is in order
+# a series of if, or a loop or for with ifs inside shall be used
+
+# --- If conditions with lists --- #
+# Let's use the example of Python Crash Course, from Eric Mathes
+requested_toppings = ['mushrooms', 'green peppers', 'extra cheese']
+for requested_topping in requested_toppings:
+    if requested_topping == 'green peppers':
+        print("Sorry, we are out of green peppers")
+    else:
+        print("Adding " + requested_topping + ".")
+# In this example we use a comparison with if to see if an item is
+# contained in a list, then we show the desired output
+
+# --- checking if a list is empty --- #
+requested_toppings_02 = []
+if requested_toppings_02:
+    print("Making your pizza")
+else:
+    print("There are no ingredients in your pizza")
+# Here we check with an else if the list is empty, inside the if instruction
