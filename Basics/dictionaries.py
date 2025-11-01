@@ -46,3 +46,36 @@ user_0['rename'] = 'fermi'
 print(set(sorted(user_0.values(), reverse=True)))
 
 # --- Nesting dictionaries inside a list --- #
+aliens = []
+for alien in range(30):
+    aliens_new = {'speed': 'slow', 'points': '5', 'color': 'green'}
+    aliens.append(aliens_new)
+for alien in aliens[:10]:
+    print(alien)
+# This will create 30 aliens dictionaries and append it to a list
+# The print will show only the first 10
+print(str(len(aliens)))
+# This print will show the lenght of the list
+# Lets modify the first 5 aliens
+for alien in aliens[0:15]:
+    if alien['color'] == 'green':
+        alien['color'] = 'yellow',
+        alien['speed'] = 'medium',
+        alien['points'] = '10'
+for alien in aliens[:5]:
+    print(alien)
+# This will change the type of the first 15 aliens to yellow
+for alien in aliens[:5]:
+    if alien['color'] == 'yellow':
+        alien['color'] = 'red',
+        alien['speed'] = 'fast',
+        alien['points'] = '15'
+# This will change the type of the first 5 aliens to red
+
+# --- Nesting a list inside a dictionary --- #
+pizza = {
+    'crust': 'thick',
+    'toppings': ['mushrooms', 'extra cheese']
+}
+print(pizza['toppings'])
+# This is an example of how to nest a list inside a dictionary
