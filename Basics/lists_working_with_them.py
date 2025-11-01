@@ -9,7 +9,7 @@ for magician in magicians:
 # If so, the loop body runs, returning every item from magicians, temporarily,
 # storing inside magician and printing it.
 # It will continue running until the returning condition is false, in this
-# case, None, or nothing in the list magicians is stored anylonger - nothing
+# case, None, or nothing in the list magicians is stored any longer - nothing
 #  in the position
 # that currently is.
 
@@ -32,7 +32,7 @@ numbers = list(range(1, 11))
 print(numbers)
 # Let's create an even number list
 even_numbers = list(range(2, 11, 2))
-# This will create a list beggining with 2 and, with the last argument (2),
+# This will create a list beginning with 2 and, with the last argument (2),
 # we will sum 2 to every number in the list created
 print(even_numbers)
 # We can also create a list with perfect squares using the exponential
@@ -42,7 +42,7 @@ for values in range(1, 16):
     squares.append(values**2)
 print(squares)
 
-# --- Wroking with simple statistics functions in python --- #
+# --- Working with simple statistics functions in python --- #
 # We can use the min() function to find the minimum value in a list, max() to
 # find the maximum value and sum() to find the sum of all the values of a list
 list_1 = []
