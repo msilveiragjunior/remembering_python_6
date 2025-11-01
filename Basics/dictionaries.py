@@ -79,3 +79,30 @@ pizza = {
 }
 print(pizza['toppings'])
 # This is an example of how to nest a list inside a dictionary
+
+# --- Dictionary inside a dictionary --- #
+users = {
+    'aeinstein': {
+        "first": "albert",
+        "last": "einstein",
+        "location": "princeton",
+    },
+    'mcurie': {
+        "first": "marie",
+        "last": "curie",
+        "location": "paris",
+    }
+}
+# This will nest a dictionary as a value inside a key. This way
+# we have a way of nesting more information: a key-value inside
+# a key
+for user_info in users.values():
+    name = user_info["first"] + " " + user_info["last"]
+    location = user_info["location"]
+    print(str(name.title()) + "\n" + str(location.title()))
+
+# This way we can get the information nested inside the original
+# key, by attributing the key information - i.e. the value of the
+# first key to a variable and, then, showing it's value in a for
+# loop, as it's value is substituted after the first for loop
+# iteration
