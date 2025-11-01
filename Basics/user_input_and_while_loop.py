@@ -53,7 +53,7 @@ while True:
         break
     else:
         print("Program is still active and will repeat itself. \n")
-# We can use the continue instruction to return to the beggining
+# We can use the continue instruction to return to the beginning
 # of the while loop without executing any other code
 # This example comes from directly from the book Python Crash
 # Course, from Eric Mathes

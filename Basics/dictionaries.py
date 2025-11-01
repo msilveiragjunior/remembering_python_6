@@ -4,7 +4,7 @@
 alien_0 = {'color': 'green', 'points': 5}
 # We can access the value of a dictionary by using it's key
 print(alien_0['color'])
-# We can add new values to dictionaries dinamically
+# We can add new values to dictionaries dynamically
 alien_0['x_position'] = 0
 alien_0['y_position'] = 25
 print(alien_0)
@@ -34,7 +34,7 @@ for user in user_0.keys():
     list_01.append(user)
 print(list_01)
 # by using the .keys() method we managed to take the keys
-# informations and append to a list
+# information and append to a list
 # the .values() method will return the values of a given
 # dictionary
 
@@ -55,7 +55,7 @@ for alien in aliens[:10]:
 # This will create 30 aliens dictionaries and append it to a list
 # The print will show only the first 10
 print(str(len(aliens)))
-# This print will show the lenght of the list
+# This print will show the length of the list
 # Lets modify the first 5 aliens
 for alien in aliens[0:15]:
     if alien['color'] == 'green':
