@@ -109,3 +109,29 @@ print(str(my_bird_02.abilities) + ", " + str(my_bird_02.name))
 # function.
 
 # --- Overwriting a method from the father class --- #
+
+
+class My_bird_02(Bird):
+
+    def __init__(self, wings, age, abilities, name):
+        super().__init__(wings, age)
+        # The super function is a function that will create a connection
+        # between the father and daughter classes. It will tell the interpreter
+        # to call the __init__ method from the father class
+        self.abilities = abilities
+        self.name = name
+
+    def abilities(self):
+        print("It has" + str(self.abilities))
+# Now we have a daughter class that inherits its father attributes
+# but has a new attribute and a method that the father class don't have
+
+    def new_name(self):
+        print("This bird already have a name!")
+# By doing this we overwrite the father method inside the daughter class
+# and the interpreter will ignore the father's code
+
+
+my_bird_02 = My_bird_02(2, 5, 3, "Charles")
+my_bird_02.new_name()
+print(str(my_bird_02.abilities) + ", " + str(my_bird_02.name))
