@@ -177,3 +177,28 @@ my_bird_03.abilities_01.describe_abilities()
 # By doing this we created an object that has an instance of a class
 # inside it. This way, we can manage in better ways what it
 # can and cannot do.
+
+# --- Importing classes --- #
+# We can import classes, and not only can but should, when
+# a given program is getting bigger. So we can write the classes
+# inside another file and import the classes that we need
+# for example: from birds import My_bird_03
+# this will ask the interpreter to import only the class
+# My_bird_03 from the file birds
+# We can also make all the classes stay in only one file,
+# making it easier to find them when should we need to import them.
+# We can import a group of classes using the comma symbol(,)
+# for example: from birds import My_bird_02, Abilities, My_bird_03
+# We can import all the module by doing import birds
+# We can import all the classes inside the module:
+# from birds import *
+# Or we can divide the modules and import a module inside a module,
+# so we can make things tidier
+# PS: I made a mistake when writing the classes:
+# They should be written using CamelCaps. In other words:
+# They should have the each letter of the first word
+# capitalized and should not have underscores, as I did
+# This is a styling convention.
+# They also shall all have a docstring - i.e. a concise description
+# of what a class does.
+# ----------------------------------------------------------------
