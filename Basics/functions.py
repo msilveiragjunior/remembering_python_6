@@ -108,3 +108,49 @@ print(make_pizza("green pepper", "pepperoni", "cheese"))
 # keyword to a function and use it as we please
 # We can use it when we don't know the number of arguments
 # that will be sent to the function
+# Lets use an example from Eric Matthes book
+
+
+def build_profile(first, last, **user_info):
+    profile = {
+
+    }
+    profile['first_name'] = first
+    profile['last_name'] = last
+    for k, v, in user_info.items():
+        profile[k] = v
+    return profile
+
+
+user_profile = build_profile('albert', 'einstein',
+                             location='princeton',
+                             field='physics')
+print(user_profile)
+# Here we send the first and last name of the user in the
+# dictionary and send dictionary information using the double
+# asterisk, explicitly defining the value to what key it should
+# be assigned
+
+# --- Modules --- #
+# We can use the 'import' instruction to bring functions
+# from other files, leaving the main program file clean
+# and free of unnecessary information
+# one example is 'import sys'
+# We can also import specific functions by doing this:
+# from 'name_of_the_module_file' import 'name_of_the_function'
+# we can also use the comma (,) to import as many
+# functions as we want from the file
+
+# We can use aliases to attribute a function with a name
+# for example: from 'module' import make_something as <- ( important) ms
+# by doing this, we assign the to ms() the function make_something()
+
+# We can also use aliases to attribute a name to a module
+# for example: import 'module' as m
+# so when we use the module, we will use as m.make_something()
+
+# We can import all functions from a module using the asterisk symbol (*)
+# from module import *
+# by doing so, we do not need to use the dot before the function
+# as all functions are imported to the file fom which the import
+# came from, so we can just name the function
