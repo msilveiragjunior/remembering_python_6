@@ -100,3 +100,11 @@ print(make_pizza("green pepper", "pepperoni"))
 print(make_pizza("green pepper", "pepperoni", "cheese"))
 # By doing this, we can send any number of arguments to
 # the function and it will treat it's parameters as tuples
+
+# --- Using double asterisks to pass a dictionary --- #
+# We can use double asterisks (**) to pass an arbitrary
+# number of named arguments to a function. By doing so
+# we can, for example, pass a dictionary as a key-value
+# keyword to a function and use it as we please
+# We can use it when we don't know the number of arguments
+# that will be sent to the function
