@@ -41,3 +41,71 @@ class Dog():
 # Methods inside the class Dog that won't need any other parameters
 # will only need the self prefix, so the interpreter knows that it belongs
 # to the class Dog() that is instantiated
+
+
+my_dog = Dog('Henry', 12)
+# When we do this, the self is attributed to my_dog.
+# My dog has access to all the methods inside the class dog.
+print(my_dog.name + "," + str(my_dog.age))
+my_dog.roll_over()
+my_dog.sit()
+
+# The method __init__() creates an instance of the Dog() class
+# and defines the attributes name and age with it's values.
+# To access these attributes from init we use the dot(.) notation
+# my_dog.name, my_dog.age and so on
+
+# --- Default values to attributes --- #
+
+
+class Bird():
+
+    def __init__(self, wings, age):
+        self.name = "No name"
+        # We are attributing a default name to this attribute
+        self.wings = wings
+        self.age = age
+
+# To modify an attribute with, it's best to use methods inside
+# the class to update the attribute
+# so lets create one
+    def new_name(self, new_name):
+        self.name = new_name
+
+
+bird = Bird(2, 4)
+print(bird.name)
+bird.new_name("Harry")
+print(bird.name)
+# Now it has a name
+
+# --- Inheritance --- #
+# We can create daughter classes that will inherit all the
+# attributes and methods from the father class. However,
+# the new class is now free to define new methods and attributes to itself
+# Lets create a daughter class
+
+
+class My_bird(Bird):
+
+    def __init__(self, wings, age, abilities):
+        super().__init__(wings, age)
+        # The super function is a function that will create a connection
+        # between the father and daughter classes. It will tell the interpreter
+        # to call the __init__ method from the father class
+        self.abilities = abilities
+
+    def abilities(self):
+        print("It has" + str(self.abilities))
+# Now we have a daughter class that inherits its father attributes
+# but has a new attribute and a method that the father class don't have
+
+
+my_bird_02 = My_bird(2, 5, 3)
+my_bird_02.new_name("Charles")
+print(str(my_bird_02.abilities) + ", " + str(my_bird_02.name))
+
+# By doing this, we can access the new fathers function and the daughters
+# function.
+
+# --- Overwriting a method from the father class --- #
