@@ -32,6 +32,8 @@ class Dog():
 # called my_dog = Dog('Henry', 12), then my_dog is the self that is initiated
 # When we do this, the interpreter knows that all the methods belong to the
 # instantiated class, in this case: the object my_dog.
+# The __init__ method is a (Constructor), or a set of attributes
+# that will define a given object
 
 # Variables like self.age = age are called attributes
 # By convention, we use self as the name of the prefix, but we can use
@@ -135,3 +137,43 @@ class My_bird_02(Bird):
 my_bird_02 = My_bird_02(2, 5, 3, "Charles")
 my_bird_02.new_name()
 print(str(my_bird_02.abilities) + ", " + str(my_bird_02.name))
+
+# --- Instances as attributes --- #
+# We can use instances of classes to synthesize a bigger class
+# by using them as attributes in their init. We only need to create
+# the new class and initiate the new class, that can have new parameters
+# as we can send arguments to it when we instantiate it when we
+# create new objects
+
+
+class Abilities():
+
+    def __init__(self, abilities=["talk", "solve problems"]):
+        self.abilities = abilities
+        print(len(self.abilities))
+
+    def describe_abilities(self):
+        for i in self.abilities:
+            print("This bird can" + " " + i.title())
+
+
+class My_bird_03(Bird):
+
+    def __init__(self, wings, age, abilities, name):
+        super().__init__(wings, age)
+        self.abilities = abilities
+        self.name = name
+        self.abilities_01 = Abilities()
+
+    def abilities(self):
+        print("It has" + str(self.abilities_01))
+
+    def new_name(self):
+        print("This bird already have a name!")
+
+
+my_bird_03 = My_bird_03(2, 3, 2, "Charles")
+my_bird_03.abilities_01.describe_abilities()
+# By doing this we created an object that has an instance of a class
+# inside it. This way, we can manage in better ways what it
+# can and cannot do.
