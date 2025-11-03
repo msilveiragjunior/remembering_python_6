@@ -1,3 +1,4 @@
+import json
 # --- Files and Exceptions --- #
 # For the purposes of this synthesis we will need
 # to download some files, the first of them is in
@@ -267,4 +268,19 @@ for filenames in file:
 # JSON is not specific to the Python language, so other
 # people, using other programming languages can also use it
 
-# --- 
+# --- Using JSON --- #
+# We can use the function json.dump(arg_1, arg_2) to store
+# data inside an object. The first argument being the data
+# that we want to store and the second the object used to
+# write the data.
+# We can use the function json.load() to load the object
+# that contains the data, that we want to read, stored.
+# First we have to import the module json
+
+# We are importing the module json on the top of this document
+numbers = [value for value in range(0, 31)]
+file_01 = 'numbers.json'
+with open(file_01, 'w') as file_obj:
+    json.dump(numbers, file_obj)
+    file_obj.close()
+# ------------------------------------------------------------ #
