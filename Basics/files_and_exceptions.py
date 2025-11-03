@@ -78,3 +78,31 @@ for line in lines:
 print(pi_string + "\n" + str(len(pi_string)))
 # This will show the string in only one line and the number of
 # digits in the string
+
+# --- Working with big files --- #
+# We can also load large files
+with open("pi_million_digits.txt") as file_object:
+    lines = file_object.readlines()
+    file_object.close()
+pi_string = ''
+for line in lines:
+    pi_string += line.strip()
+
+print(pi_string[:100] + "\n" + str(len(pi_string)))
+# This will print the first 100 characters from the file
+# and show the length of the line showing 1000002 digits
+# - with the dot and the end of line included.
+
+# Lets see if a number is in the first million digits of pi
+number = input("enter a number with 4 digits\n")
+if number in pi_string:
+    print("The number is there")
+else:
+    print("The number isn't there")
+# We can use the method replace() to replace this number with
+# another number
+if number in pi_string:
+    pi_string.replace(number, str(123456))
+    print("Number replaced")
+
+# --- Writing data in a file --- #
