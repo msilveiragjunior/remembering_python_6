@@ -147,3 +147,46 @@ with open(file, 'a') as file_object:
 # of the file
 
 # --- Exceptions --- #
+# When we use python, we can deal with special objects
+# called exceptions to deal with error that can
+# appear during the execution of the code. If you write
+# a code that solves the exception, the python code
+# will continue to execute.
+# These exceptions are used with blocks of try-except
+# Lets use two examples from Eric Matthes book
+try:
+    print(5/0)
+    # This will cause a error called ZeroDivisionError
+    # and we can treat it by using the block try-except
+except ZeroDivisionError:
+    print("You can't divide by zero.")
+
+# Now we use this knowledge to create another program:
+# a simple calculator that will use this try-except concept
+# block of code.
+print("This is a division calculator. Write two numbers and"
+      "I'll divide them. \n Enter 'q' to quit.")
+
+while True:
+    first_number = input("Enter the first number:\n")
+    if first_number == 'q':
+        break
+    second_number = input("Enter the second number:\n")
+    try:
+        answer = int(first_number)/int(second_number)
+    except ZeroDivisionError:
+        print("You can't divide by zero.")
+    else:
+        print(answer)
+
+# Lets try to read a file that does not exists and use an
+# try-exception block to deal it the FileNotFoundError
+# This is another example from Eric Matthes book
+file = 'alice.txt'
+try:
+    with open(file) as file_object:
+        print(file_object.read())
+except FileNotFoundError:
+    print("The file " + file + " does not exist.")
+
+# Now we saw how to deal with errors with the try-except block
