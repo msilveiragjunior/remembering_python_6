@@ -190,3 +190,24 @@ except FileNotFoundError:
     print("The file " + file + " does not exist.")
 
 # Now we saw how to deal with errors with the try-except block
+
+# --- Analyzing text
+# We will use the Gutenberg project to get the text from
+# Alice in the Wonderland: https://gutenberg.org
+# Lets continue using examples from the book from Eric Matthes,
+# as defined in the readme.md of this repo
+title = "Alice in Wonderland"
+title.split()
+# The split() method creates a list with all the words
+# in a string. Every time it encounters a blank space, it
+# takes everything before that space and appends it to a list
+file = 'alice.txt'
+try:
+    with open(file) as file_object:
+        contents = file_object.read()
+        file_object.close()
+except FileNotFoundError:
+    print("The file " + file + " does not exist.")
+else:
+    words = contents.split()
+    print("The file " + file + " contains " + str(len(words)) + " words.")
