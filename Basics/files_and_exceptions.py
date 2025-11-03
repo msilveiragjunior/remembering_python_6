@@ -211,3 +211,60 @@ except FileNotFoundError:
 else:
     words = contents.split()
     print("The file " + file + " contains " + str(len(words)) + " words.")
+
+# When working with various files the things do not change much.
+# We can create a list and go through it instead of a string
+
+file = ['alice.txt', 'siddhartha.txt', 'moby_dick.txt', 'little_women.txt']
+
+
+def count_words(file):
+
+    try:
+        with open(file) as file_object:
+            contents = file_object.read()
+            file_object.close()
+    except FileNotFoundError:
+        print("The file " + file + " does not exist.")
+    else:
+        words = contents.split()
+        print("The file " + file + " contains " + str(len(words)) + " words.")
+
+
+for filenames in file:
+    count_words(filenames)
+
+# By doing this we can analyze various files.
+# This is the power of a function.
+# We can also let the try-except block fail
+# silently, by using the instruction pass
+
+
+def count_words_02(file):
+
+    try:
+        with open(file) as file_object:
+            contents = file_object.read()
+            file_object.close()
+    except FileNotFoundError:
+        pass
+    else:
+        words = contents.split()
+        print("The file " + file + " contains " + str(len(words)) + " words.")
+
+
+for filenames in file:
+    count_words_02(filenames)
+
+# PS: We can use the method count('name_of_the_word') to know how many times
+# a word appears in a string
+
+# --- Storing data --- #
+# As we deal with information, one of the best ways possible
+# to store them is by using the module json.
+# This module lets you store structures of data and load
+# them the next time the program executes.
+# JSON is not specific to the Python language, so other
+# people, using other programming languages can also use it
+
+# --- 
