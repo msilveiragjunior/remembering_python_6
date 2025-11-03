@@ -7,7 +7,7 @@
 # All credits due to him for making the file public
 # We will use an example, from Eric Matthes book, of how to read the contents
 # of a file and store them inside a variable.
-with open('pi_digits.txt') as file_object:
+with open("pi_digits.txt") as file_object:
     contents = file_object.read()
     print(contents)
 # Here we use the function open(), with an necessary argument,
@@ -23,3 +23,58 @@ with open('pi_digits.txt') as file_object:
 # to remove the final blank line that the method .read()
 # returns when reading the document contents.
 # This will return an exact copy of the file contents.
+
+# --- Folders, Relative and absolute path --- #
+# When a file is inside a folder, you can't simply
+# tell the python interpreter to find a file that
+# is inside a folder. We need to tell the interpreter in
+# what folder it's the file is located. This method is
+# called defining relative path.
+file_path = r"text_file\\pi_digits.txt"
+with open(file_path) as file_object:
+    contents = (file_object.read()).rstrip()
+    print(contents)
+# When using double backslashes we tell the interpreter
+# that the next character should be treated as a normal
+# character and not as a sequence
+# We can also use absolute file paths
+file_path = "E:/Projetos/Relembrando_Python/remembering_python_6/Basics/" \
+            "pi_digits.txt"
+with open(file_path) as file_object:
+    contents = (file_object.read()).rstrip()
+    print(contents)
+
+# By defining the path where the file resides we can tell
+# the interpreter to read directly from where it is
+# but is almost never the best option
+
+# --- Reading data by line --- #
+# We may want to read data per line, with a for loop
+# we can do it
+with open("pi_digits.txt") as file_object:
+    for line in file_object:
+        print(line.rstrip())
+
+# We can create a list with lines of data from a file
+# with the method readlines()
+
+with open("pi_digits.txt") as file_object:
+    lines = file_object.readlines()
+    file_object.close()
+    # The close() method is redundant, but will give
+    # us no problem whatsoever
+for line in lines:
+    print(line.rstrip())
+
+# Now that we know how to open a file, we will know how
+# to work with a file
+with open("pi_digits.txt") as file_object:
+    lines = file_object.readlines()
+    file_object.close()
+pi_string = ''
+for line in lines:
+    pi_string += line.strip()  # this will remove any leading
+# and trailing whitespaces
+print(pi_string + "\n" + str(len(pi_string)))
+# This will show the string in only one line and the number of
+# digits in the string
