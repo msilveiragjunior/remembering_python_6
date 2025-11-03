@@ -106,3 +106,44 @@ if number in pi_string:
     print("Number replaced")
 
 # --- Writing data in a file --- #
+# The open() function accepts arguments, with that we can write
+# files by sending the right argument. With 'w' as a second
+# argument we can tell the program not to read a file, but to
+# write in it.
+# We can write ('w'), read ('r'), read-write('r+'),
+# concatenate ('a'), and more, a file.
+# The open function automatically creates a new file if it does
+# not exists, but it will erase everything it has if it already
+# exists before giving back the file object
+file = 'programming.txt'
+
+with open(file, 'w') as file_object:
+    # here we write something inside the file with the write()
+    # method.
+    file_object.write("This is programming")
+    file_object.close()
+    # It's redundant, I know.
+# If you want to write numbers inside a text file, it will be
+# necessary to convert it to a string using the str() function
+# before writing it in the file.
+with open(file, 'w') as file_object:
+
+    file_object.write("This is programming\n")
+    file_object.write("This is also programming.\n")
+    # The '\n' here serves as an escape character
+    # It will tell the interpreter to skip the current line
+    # and began working using the next line in the document
+    file_object.close()
+
+# If we want to concatenate something to a file instead of
+# overwriting it, we will have to use the 'a' argument
+# so the new data will not overwrite the old data, but sum
+# information to the file
+with open(file, 'a') as file_object:
+    file_object.write("This is a phrase written using"
+                      "the concatenating argument.\n")
+    file_object.close()
+# By doing this, we concatenate the sentence to the end
+# of the file
+
+# --- Exceptions --- #
