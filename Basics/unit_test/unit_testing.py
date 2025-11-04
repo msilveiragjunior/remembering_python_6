@@ -40,3 +40,9 @@
 # Now that we've wrote it, we will write a test class
 # to test the class AnonymousSurvey
 # it will be called test_survey.py
+# We created it. Now we can begin to learn about
+# the setUp() method.
+# The setUp() method lets us create objects to use them
+# in our tests. The setUp() method is executed before
+# any given test_ method, so, in that way, we can instantiate
+# an object inside the testing environment.
