@@ -46,3 +46,17 @@
 # in our tests. The setUp() method is executed before
 # any given test_ method, so, in that way, we can instantiate
 # an object inside the testing environment.
+# We've created test_survey_02.py to test the setUp() method
+# and show how it works
+# Now we'll do the exercise 11.3 from Eric Matthes book:
+# python crash course
+# PS: we have a myriad of assertion methods available inside
+# the unittest module, for example:
+# assertEqual(a, b) verifies if a == b
+# assertNotEqual(a, b) verifies if a != b
+# assertTrue(x) verifies if x is True
+# assertFalse(x) verifies if x is False
+# assertIn(item, list) verifies if item is in a given list
+# assertNotIn(item, list) verifies if item is not in a given list
+# We've done the exercise 11.3 from Eric Matthes book.
+# Now we can continue to the part 2 of the book.
