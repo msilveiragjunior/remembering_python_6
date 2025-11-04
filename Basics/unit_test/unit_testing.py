@@ -29,3 +29,14 @@
 # And we've done it
 
 # --- Testing Classes --- #
+# To test a class we will use the the behaviors, and tools,
+# learnt to test a method and will apply to a class. There
+# are differences when testing a class, so we'll continue
+# to follow Eric Matthes book while doing it.
+# We will create a class called survey.py to begin it.
+# To show that the class AnonymousSurvey works, we'll
+# create a program that uses this class, called
+# language_survey.py
+# Now that we've wrote it, we will write a test class
+# to test the class AnonymousSurvey
+# it will be called test_survey.py
