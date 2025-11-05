@@ -1,6 +1,7 @@
 import sys
 import pygame
 from settings import Settings
+from ship import Ship
 
 
 def run_game():
@@ -17,6 +18,9 @@ def run_game():
     # This will set the caption on the upper bar
     # to Alien Invasion
 
+    # Creating the object ship
+    ship = Ship(screen)
+
     # This will create the main loop of the game
     while True:
         for event in pygame.event.get():
@@ -32,7 +36,10 @@ def run_game():
         # Every time the screen updates, it will execute the code
         # above, updating the screen color to the contained rgb
         # 3-tuple contained inside bg_color
-
+        ship.blitme()
+        # The blitme method is inside the class Ship, that is inside
+        # the object ship that we've instantiated. This
+        # will draw the ship over the background.
         pygame.display.flip()
         # The method .flip() from display module is
         # responsible for updating the screen of the game

@@ -16,3 +16,14 @@
 # Now lets create a class with configurations for the program.
 # By doing this, we'll make the program cleaner and organized.
 # Lets call it settings.py
+
+# Following the Python Crash Course book, we'll now add the image
+# of the spaceship to our game. We'll load it and use the method
+# blot() from pygame to draw it.
+
+# Lets create the class ship, so it will hold and load and draw
+# the image of the ship.
+# We'll call it ship.py, the same name the book uses
+
+# Lets update the alien_invasion file and draw the ship,
+# from the ship class inside ship.py file, inside it.
