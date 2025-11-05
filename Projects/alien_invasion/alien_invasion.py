@@ -29,7 +29,9 @@ def run_game():
 
         # This will update the screen to the color that we choose
         screen.fill(bg_color)
-        # Every time the screen updates, it will execute these codes
+        # Every time the screen updates, it will execute the code
+        # above, updating the screen color to the contained rgb
+        # 3-tuple contained inside bg_color
 
         pygame.display.flip()
         # The method .flip() from display module is
