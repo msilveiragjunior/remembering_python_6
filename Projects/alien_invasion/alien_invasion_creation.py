@@ -12,3 +12,7 @@
 
 # Now that we've created the game screen, we can modify
 # the background color, following the book.
+
+# Now lets create a class with configurations for the program.
+# By doing this, we'll make the program cleaner and organized.
+# Lets call it settings.py

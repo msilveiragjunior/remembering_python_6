@@ -1,11 +1,14 @@
 import sys
 import pygame
+from settings import Settings
 
 
 def run_game():
     # Initializes the game
     pygame.init()
-    screen = pygame.display.set_mode((1200, 800))
+    alien_invasion_settings = Settings()
+    screen = pygame.display.set_mode((alien_invasion_settings.screen_length,
+                                     alien_invasion_settings.screen_width))
     # Display.set_mode() represents all the game
     # screen, and it will be used to define the size
     # of the game screen. It accepts a tuple with two
@@ -13,9 +16,6 @@ def run_game():
     pygame.display.set_caption("Alien Invasion")
     # This will set the caption on the upper bar
     # to Alien Invasion
-
-    # This will define the background color in using rgb
-    bg_color = (230, 230, 230)
 
     # This will create the main loop of the game
     while True:
@@ -28,7 +28,7 @@ def run_game():
                 # is equal to the method .QUIT from pygame
 
         # This will update the screen to the color that we choose
-        screen.fill(bg_color)
+        screen.fill(alien_invasion_settings.bg_color)
         # Every time the screen updates, it will execute the code
         # above, updating the screen color to the contained rgb
         # 3-tuple contained inside bg_color
