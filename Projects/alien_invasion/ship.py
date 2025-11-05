@@ -48,4 +48,4 @@ class Ship():
 
     def blitme(self):
         # This will draw the spaceship in its actual position
-        self.screen.blot(self.image, self.rect)
+        self.screen.blit(self.image, self.rect)

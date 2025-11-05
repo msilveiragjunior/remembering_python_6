@@ -8,8 +8,8 @@ def run_game():
     # Initializes the game
     pygame.init()
     alien_invasion_settings = Settings()
-    screen = pygame.display.set_mode((alien_invasion_settings.screen_length,
-                                     alien_invasion_settings.screen_width))
+    screen = pygame.display.set_mode((alien_invasion_settings.screen_width,
+                                     alien_invasion_settings.screen_length))
     # Display.set_mode() represents all the game
     # screen, and it will be used to define the size
     # of the game screen. It accepts a tuple with two
