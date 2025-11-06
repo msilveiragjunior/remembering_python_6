@@ -118,3 +118,35 @@
 
 # Lets refactor the code again, creating a function called
 # fire_bullet(), simplifying the check_keydown_events().
+
+# --- Creating aliens to shoot --- #
+# We've created the base of the game, now we can create
+# the rest of it (haha), meaning that we'll continue
+# to follow Eric Matthes book, and try to explain the concepts
+# behind every code in a more concise way. But remember, this
+# is a personal study, to remember the concepts of python; as
+# well as a way to help people understand certain concepts.
+# So let's begin:
+# Lets begin adding a keydown event that will check if the
+# player wants to exit the game, this will be placed inside
+# the game_functions.py
+
+# We'll create the class Alien to represent our first alien ship.
+# Lets create with within the alien.py file
+
+# Now we have to make the alien appears on the screen.
+# We'll call the method alien.blitme() after the ship.blitme()
+# inside the game_functions.py
+
+# Now we need to create a fleet of aliens. To do that,
+# we need to know how many aliens can be put on the same
+# vertical line.
+# We can know that by knowing how much space is available
+# to put alien ships, the width of a alien ship and a space
+# between the alien ships. Let's say we want the space of half
+# of the width of a alien ship between the alien ships.
+# Knowing this, we can know the number of aliens that we can put
+# on a vertical line by doing this calculation:
+# number_of_aliens = ((alien_invasion_settings.screen_width
+#                      - (1.5 * alien_width)) / (1.5 * alien_width)
+# This way, we'll know the number of aliens available to be put on the screen

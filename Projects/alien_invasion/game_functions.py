@@ -46,6 +46,11 @@ def check_keydown_events(event, alien_invasion_settings, screen, ship,
         # pressed is the left arrow.
     elif event.key == pygame.K_SPACE:
         fire_bullets(alien_invasion_settings, screen, ship, bullets)
+    elif event.key == pygame.K_q:
+        sys.exit()
+        # When the interpreter sees that the player pressed
+        # the letter Q, the game exit, using a sys method called
+        # exit()
 
 
 def check_keyup_events(event, ship):
@@ -62,7 +67,7 @@ def check_keyup_events(event, ship):
         # left arrow has stopped.
 
 
-def update_screen(alien_invasion_settings, screen, ship, bullets):
+def update_screen(alien_invasion_settings, screen, ship, alien, bullets):
     # This will update the screen to the color that we choose
     screen.fill(alien_invasion_settings.bg_color)
     # Every time the screen updates, it will execute the code
@@ -77,6 +82,8 @@ def update_screen(alien_invasion_settings, screen, ship, bullets):
     # The blitme method is inside the class Ship, that is inside
     # the object ship that we've instantiated. This
     # will draw the ship over the background.
+    alien.blitme()
+    # This will draw the alien spaceship over the background.
     pygame.display.flip()
     # The method .flip() from display module is
     # responsible for updating the screen of the game
