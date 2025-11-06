@@ -150,3 +150,13 @@
 # number_of_aliens = ((alien_invasion_settings.screen_width
 #                      - (1.5 * alien_width)) / (1.5 * alien_width)
 # This way, we'll know the number of aliens available to be put on the screen
+
+# --- Creating a fleet of aliens --- #
+# To create the first line of aliens, we need an empty Group()
+# called aliens inside alien_invasion and a function inside
+# game_functions.py to call our fleet.
+
+# Lets refactor the create_fleet() function
+# We'll create two new functions to make the game_functions.py
+# cleaner: get_number_aliens_x() and create_alien()
+# We are doing this to make it easier to work with them.

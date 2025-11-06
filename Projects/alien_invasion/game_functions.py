@@ -4,6 +4,7 @@ import sys
 # python interpreter
 import pygame
 from bullet import Bullet
+from alien import Alien
 
 
 def check_events(alien_invasion_settings, screen, ship,
@@ -67,7 +68,7 @@ def check_keyup_events(event, ship):
         # left arrow has stopped.
 
 
-def update_screen(alien_invasion_settings, screen, ship, alien, bullets):
+def update_screen(alien_invasion_settings, screen, ship, aliens, bullets):
     # This will update the screen to the color that we choose
     screen.fill(alien_invasion_settings.bg_color)
     # Every time the screen updates, it will execute the code
@@ -79,11 +80,10 @@ def update_screen(alien_invasion_settings, screen, ship, alien, bullets):
         bullet.draw_bullet()
 
     ship.blitme()
+    aliens.draw(screen)
     # The blitme method is inside the class Ship, that is inside
     # the object ship that we've instantiated. This
     # will draw the ship over the background.
-    alien.blitme()
-    # This will draw the alien spaceship over the background.
     pygame.display.flip()
     # The method .flip() from display module is
     # responsible for updating the screen of the game
@@ -115,3 +115,33 @@ def fire_bullets(alien_invasion_settings, screen, ship, bullets):
         bullets.add(new_bullet)
         # Here we add new bullets to the set bullets, inside
         # alien_invasion.py
+
+
+def get_number_aliens_x(alien_invasion_settings, alien_width):
+    # We'll use the formulae defined inside the alien_invasion_creation.py
+    # to calculate the number of aliens in a line
+    # The spacing between aliens are half of the width of a alien ship
+    number_aliens_x = int((alien_invasion_settings.screen_width
+                          - (1.5 * alien_width)) / (1.5 * alien_width))
+    return number_aliens_x
+
+
+def create_alien(alien_invasion_settings, screen, aliens, alien_number):
+    alien = Alien(alien_invasion_settings, screen)
+    alien_width = alien.rect.width
+    alien = Alien(alien_invasion_settings, screen)
+    alien.x = int(alien_width + 1.5 * alien_width * alien_number)
+    alien.rect.x = alien.x
+    aliens.add(alien)
+
+
+def create_fleet(alien_invasion_settings, screen, aliens):
+
+    alien = Alien(alien_invasion_settings, screen)
+    number_aliens_x = get_number_aliens_x(alien_invasion_settings,
+                                          alien.rect.width)
+
+    # Creating the first line of aliens
+    for alien_number in range(number_aliens_x):
+        create_alien(alien_invasion_settings, screen, aliens,
+                     alien_number)
