@@ -27,3 +27,17 @@
 
 # Lets update the alien_invasion file and draw the ship,
 # from the ship class inside ship.py file, inside it.
+
+# Now we will refactor the main program. We need to make
+# it cleaner: think about readability.
+# Lets follow the book and create a module called game_functions.py,
+# where we'll store all the functions from alien_invasion.
+# We modified alien_invasion.py to import the game_functions.py and,
+# now, use it's functions.
+# We've updated the game_functions.py with all code pertaining to
+# updating the screen, showing the background color and the drawing
+# the ship.
+
+# Now that we've refactored the game, we'll create a way for the player
+# to command the ship. We'll update the game_functions.py to give
+# the functions for the player to do so.
