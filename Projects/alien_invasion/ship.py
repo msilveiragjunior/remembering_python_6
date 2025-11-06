@@ -46,6 +46,17 @@ class Ship():
         # a rectangle. When we work with the border of the screen,
         # we'll use the attributes top, bottom, left or right.
 
+        # Here we need to create a flag to make
+        # possible for the game_functions detect
+        # when we need to stop the ship
+        self.moving_right = False
+
+    def update(self):
+        # Here we update the position of the spaceship
+        # accordingly to the flag movement.
+        if self.moving_right:
+            self.rect.centerx += 1
+
     def blitme(self):
         # This will draw the spaceship in its actual position
         self.screen.blit(self.image, self.rect)
