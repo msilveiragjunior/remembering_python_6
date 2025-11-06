@@ -42,6 +42,7 @@ def run_game():
         # bullets trajectory we'll be updated on the screen
         # by the update() method from the module sprite, from
         # pygame.
+        gf.update_bullets(bullets)
         gf.update_screen(alien_invasion_settings, screen, ship, bullets)
         # Here we use the method update_screen from game_functions
         # to update the screen, define the background color and

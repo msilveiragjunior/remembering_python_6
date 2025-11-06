@@ -45,11 +45,13 @@ def check_keydown_events(event, alien_invasion_settings, screen, ship,
         # but we use the constant K_LEFT to check if the arrow
         # pressed is the left arrow.
     elif event.key == pygame.K_SPACE:
-        new_bullet = Bullet(alien_invasion_settings, screen, ship)
-        # Here we instantiate a bullet from the class Bullet, sending the
-        # settings, screen and ship to it.
-        bullets.add(new_bullet)
-        # Here we add new bullets to the set bullets, inside alien_invasion.py
+        if len(bullets) < alien_invasion_settings.bullets_allowed:
+            new_bullet = Bullet(alien_invasion_settings, screen, ship)
+            # Here we instantiate a bullet from the class Bullet, sending the
+            # settings, screen and ship to it.
+            bullets.add(new_bullet)
+            # Here we add new bullets to the set bullets, inside
+            # alien_invasion.py
 
 
 def check_keyup_events(event, ship):
@@ -86,3 +88,19 @@ def update_screen(alien_invasion_settings, screen, ship, bullets):
     # responsible for updating the screen of the game
     # So it will show the newly rendered frame of the game
     # This will constantly update the game screen
+
+
+def update_bullets(bullets):
+    # Delete the bullets that disappear:
+    for bullet in bullets.copy():
+        if bullet.rect.bottom <= 0:
+            bullets.remove(bullet)
+    # When we use the method copy() to create
+    # a copy of the object bullets, we can
+    # go through the object with the for loop
+    # and verify if the bullet, in that moment,
+    # holds the attribute self.y that is smaller
+    # or equal to zero. Then we can use it's value
+    # to use the method remove, removing any value
+    # that is equal to the value contained inside the bullets
+    # group.

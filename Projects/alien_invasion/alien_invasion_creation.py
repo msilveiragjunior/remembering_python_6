@@ -88,3 +88,30 @@
 # Lets modify the check_keydown_events() to shoot a bullet when
 # the space bar is pressed. We'll also need to modify the update_screen()
 # before the display.flip() is called.
+
+# Now that we've created functional bullets, we need to deal
+# with the existing projects. Just because they don't show
+# on the screen when they go up, does not mean they don't exist
+# in the memory, consuming processing power and memory.
+# We need to delete then when they reach the top of the screen,
+# by checking if the rect.bottom value is less or equal than 0,
+# that means: the y of the projectile value is not less or equal than 0:
+# the top of the screen. But remember: this signifies the top
+# of the screen because the value x,y increases as it goes to the right
+# and down.
+
+# We need to limit the number of projectiles on the screen.
+# By doing it, the player needs to shoot in a precise way to
+# hit the aliens.
+# Lets define the number of bullets allowed inside settings.py
+# We'll also need to modify the game_functions.py, so we can
+# check if the number of bullets inside the group bullets is
+# smaller than the number of bullets allowed. In that way,
+# if the number of bullets is smaller than 4, we can shoot another
+# one, because 3 bullets + 1 new bullet = 4 bullets.
+
+# We want to maintain the main file of the game simple,
+# so lets create a function inside game_functions called
+# update_bullets(), so we can add the code from alien_invasion -
+# the one that update the bullets - to the game_function
+# file.
