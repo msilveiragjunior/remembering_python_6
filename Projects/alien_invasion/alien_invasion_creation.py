@@ -51,3 +51,11 @@
 
 # Now we need to make the ship be able to move to the left.
 # We'll update the Ship class and the function check_events()
+
+# Lets adjust the speed of the spaceship. Right now,
+# it moves a pixel per cycle of the while loop. Whoever,
+# we can have the control over the speed that it will move
+# across the screen. So lets create a new attribute inside
+# settings.py to make it possible. All of this is inside
+# the book from Eric Matthes, Python Crash Course, so all
+# credits due to him.

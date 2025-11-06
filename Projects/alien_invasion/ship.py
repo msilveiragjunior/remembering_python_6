@@ -3,11 +3,11 @@ import pygame
 
 class Ship():
 
-    def __init__(self, screen):
+    def __init__(self, alien_invasion_settings, screen):
         # It will initialize the initial position
         # of the ship
         self.screen = screen
-
+        self.alien_invasion_settings = alien_invasion_settings
         # Load the image of the spaceship
         self.image = pygame.image.load('images/ship.png')
         # To load the image of the spaceship we use
@@ -46,6 +46,11 @@ class Ship():
         # a rectangle. When we work with the border of the screen,
         # we'll use the attributes top, bottom, left or right.
 
+        # Here we'll store a decimal value, making the spaceship
+        # able to be in a float pixel position instead of a int of pixels per
+        # cycle of the while loop.
+        self.center = float(self.rect.centerx)
+
         # Here we need to create a flag to make
         # possible for the game_functions detect
         # when we need to stop the ship
@@ -56,9 +61,12 @@ class Ship():
         # Here we update the position of the spaceship
         # accordingly to the flag movement.
         if self.moving_right:
-            self.rect.centerx += 1
+            self.center += self.alien_invasion_settings.ship_speed_factor
         if self.moving_left:
-            self.rect.centerx -= 1
+            self.center -= self.alien_invasion_settings.ship_speed_factor
+        # Here we update the rect object accordingly to the self.center
+        # attribute.
+        self.rect.centerx = self.center
 
     def blitme(self):
         # This will draw the spaceship in its actual position

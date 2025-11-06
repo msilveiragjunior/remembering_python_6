@@ -19,7 +19,10 @@ def run_game():
     # to Alien Invasion
 
     # Creating the object ship
-    ship = Ship(screen)
+    ship = Ship(alien_invasion_settings, screen)
+    # Now we've added the speed factor to the ship, and
+    # can change the rhythm of the game as the player
+    # evolves in it.
 
     # This will create the main loop of the game
     while True:

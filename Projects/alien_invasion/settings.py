@@ -10,3 +10,7 @@ class Settings():
         # were inside the program, making a class
         # to hold all the information needed, and
         # making the main program cleaner.
+
+        # Here we'll make an attribute that will
+        # alter the spaceship speed factor
+        self.ship_speed_factor = 1.5
