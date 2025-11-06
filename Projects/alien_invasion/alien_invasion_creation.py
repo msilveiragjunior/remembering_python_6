@@ -68,3 +68,12 @@
 # We need to refactor the function check_events(). It'll
 # grow and it's going to be difficult to go through it's
 # functions without getting lost.
+
+# --- Shooting with the spaceship --- #
+# Lets add the capability of shooting with the spaceship.
+# To do so, we need to write a new code that will
+# launch a little projectile when, and only when, the player press the
+# space bar
+# First we need to make adjustments to the settings.py file,
+# so we can include the values that we'll need to create a new class:
+# the Bullet class.

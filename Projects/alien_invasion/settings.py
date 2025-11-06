@@ -14,3 +14,8 @@ class Settings():
         # Here we'll make an attribute that will
         # alter the spaceship speed factor
         self.ship_speed_factor = 1.5
+        # Projectile information
+        self.bullet_speed_factor = 1
+        self.bullet_width = 3
+        self.bullet_length = 15
+        self.bullet_color = (60, 60, 60)
