@@ -5,7 +5,7 @@ import sys
 import pygame
 
 
-def check_events():
+def check_events(ship):
     for event in pygame.event.get():
         # Here we'll watch all the events from the keyboard
         # and mouse, like button activations
@@ -13,6 +13,25 @@ def check_events():
             sys.exit()
             # This will exit the game if the event type
             # is equal to the method .QUIT from pygame
+        # Here We update the check_events() function
+        # to check key presses from the player. In this specific
+        # case, we check if the player is pressing the right arrow key.
+        # Every pressing event is registered as a KEYDOWN event.
+        # When a KEYDOWN event is detected, we will verify, with
+        # the constant K_RIGHT.
+        elif event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_RIGHT:
+                # If the attribute defined before in the for
+                # loop - i.e. event - .key is equal to the constant K_RIGHT,
+                # then we move the ship to the right, incrementing the
+                # centerx with a value of + 1.
+                ship.moving_right = True
+        elif event.type == pygame.KEYUP:
+            if event.key == pygame.K_RIGHT:
+                ship.moving_right = False
+                # Here we define the constant event KEYUP
+                # together with the flag moving_right, so
+                # we can implement the continuous movement.
 
 
 def update_screen(alien_invasion_settings, screen, ship):

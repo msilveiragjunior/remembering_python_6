@@ -41,3 +41,10 @@
 # Now that we've refactored the game, we'll create a way for the player
 # to command the ship. We'll update the game_functions.py to give
 # the functions for the player to do so.
+# We've now updated the game_functions file to let the player move the ship
+# to the right side of the screen, by pressing the right arrow key.
+
+# We have to let the player have a continuous movement. To do it, we
+# need to update the check_events() function to make the keypress
+# be detected until the player releases it. When we do it, we
+# make the movement a continuous movement.

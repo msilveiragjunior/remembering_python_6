@@ -23,9 +23,13 @@ def run_game():
 
     # This will create the main loop of the game
     while True:
-        gf.check_events()
+        gf.check_events(ship)
         # This has check all the events that occurs with the mouse
         # and the keyboard.
+        ship.update()
+        # Here we'll make the ship position be updated
+        # every time we check the events from the ship, inside
+        # the while loop.
         gf.update_screen(alien_invasion_settings, screen, ship)
         # Here we use the method update_screen from game_functions
         # to update the screen, define the background color and
