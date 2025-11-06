@@ -26,12 +26,24 @@ def check_events(ship):
                 # then we move the ship to the right, incrementing the
                 # centerx with a value of + 1.
                 ship.moving_right = True
+            elif event.key == pygame.K_LEFT:
+                ship.moving_left = True
+                # Here we almost repeat the code to move to the right,
+                # but we use the constant K_LEFT to check if the arrow
+                # pressed is the left arrow.
+
         elif event.type == pygame.KEYUP:
             if event.key == pygame.K_RIGHT:
                 ship.moving_right = False
                 # Here we define the constant event KEYUP
                 # together with the flag moving_right, so
                 # we can implement the continuous movement.
+            elif event.key == pygame.K_LEFT:
+                ship.moving_left = False
+                # Here we almost the repeat the code to
+                # check if the keypress has stopped, but,
+                # this time, we'll check if the keypress of the
+                # left arrow has stopped.
 
 
 def update_screen(alien_invasion_settings, screen, ship):

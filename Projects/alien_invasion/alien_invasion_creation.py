@@ -48,3 +48,6 @@
 # need to update the check_events() function to make the keypress
 # be detected until the player releases it. When we do it, we
 # make the movement a continuous movement.
+
+# Now we need to make the ship be able to move to the left.
+# We'll update the Ship class and the function check_events()

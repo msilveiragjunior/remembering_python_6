@@ -50,12 +50,15 @@ class Ship():
         # possible for the game_functions detect
         # when we need to stop the ship
         self.moving_right = False
+        self.moving_left = False
 
     def update(self):
         # Here we update the position of the spaceship
         # accordingly to the flag movement.
         if self.moving_right:
             self.rect.centerx += 1
+        if self.moving_left:
+            self.rect.centerx -= 1
 
     def blitme(self):
         # This will draw the spaceship in its actual position
