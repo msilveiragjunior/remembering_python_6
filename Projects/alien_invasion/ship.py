@@ -60,9 +60,15 @@ class Ship():
     def update(self):
         # Here we update the position of the spaceship
         # accordingly to the flag movement.
-        if self.moving_right:
+        if self.moving_right and self.rect.right < self.screen_rect.right:
+            # Here we check if the value of the right border of the ship - i.e.
+            # self.rect.right - is lower than the value of the border of
+            # the screen - i.e. self.screen_rect.right.
             self.center += self.alien_invasion_settings.ship_speed_factor
-        if self.moving_left:
+        if self.moving_left and self.rect.left > 0:
+            # Here we check if the value of the left border of the ship
+            # is located in a x value higher than the 0. That is: the origin
+            # point of x.
             self.center -= self.alien_invasion_settings.ship_speed_factor
         # Here we update the rect object accordingly to the self.center
         # attribute.

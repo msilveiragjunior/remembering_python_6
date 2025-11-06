@@ -59,3 +59,12 @@
 # settings.py to make it possible. All of this is inside
 # the book from Eric Matthes, Python Crash Course, so all
 # credits due to him.
+
+# Now lets limit the range of movement of the spaceship
+# We need to make the spaceship stop when it hits the border of
+# the screen. We'll update the method update() inside the
+# class Ship to do it.
+
+# We need to refactor the function check_events(). It'll
+# grow and it's going to be difficult to go through it's
+# functions without getting lost.
