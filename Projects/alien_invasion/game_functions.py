@@ -45,13 +45,7 @@ def check_keydown_events(event, alien_invasion_settings, screen, ship,
         # but we use the constant K_LEFT to check if the arrow
         # pressed is the left arrow.
     elif event.key == pygame.K_SPACE:
-        if len(bullets) < alien_invasion_settings.bullets_allowed:
-            new_bullet = Bullet(alien_invasion_settings, screen, ship)
-            # Here we instantiate a bullet from the class Bullet, sending the
-            # settings, screen and ship to it.
-            bullets.add(new_bullet)
-            # Here we add new bullets to the set bullets, inside
-            # alien_invasion.py
+        fire_bullets(alien_invasion_settings, screen, ship, bullets)
 
 
 def check_keyup_events(event, ship):
@@ -104,3 +98,13 @@ def update_bullets(bullets):
     # to use the method remove, removing any value
     # that is equal to the value contained inside the bullets
     # group.
+
+
+def fire_bullets(alien_invasion_settings, screen, ship, bullets):
+    if len(bullets) < alien_invasion_settings.bullets_allowed:
+        new_bullet = Bullet(alien_invasion_settings, screen, ship)
+        # Here we instantiate a bullet from the class Bullet, sending the
+        # settings, screen and ship to it.
+        bullets.add(new_bullet)
+        # Here we add new bullets to the set bullets, inside
+        # alien_invasion.py

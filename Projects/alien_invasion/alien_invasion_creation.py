@@ -115,3 +115,6 @@
 # update_bullets(), so we can add the code from alien_invasion -
 # the one that update the bullets - to the game_function
 # file.
+
+# Lets refactor the code again, creating a function called
+# fire_bullet(), simplifying the check_keydown_events().
