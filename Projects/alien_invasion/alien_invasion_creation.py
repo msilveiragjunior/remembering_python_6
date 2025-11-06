@@ -77,3 +77,14 @@
 # First we need to make adjustments to the settings.py file,
 # so we can include the values that we'll need to create a new class:
 # the Bullet class.
+
+# Now we'll create an instantiation of the class pygame.sprite.Group
+# This class, also called a container class - due to it's abilities
+# to hold objects and be testable -, stores lists of sprites objects,
+# like the projectiles that we are working with. By instantiating
+# this class, we'll be able to manage active projectiles, and
+# use this group to draw projectiles on the screen.
+
+# Lets modify the check_keydown_events() to shoot a bullet when
+# the space bar is pressed. We'll also need to modify the update_screen()
+# before the display.flip() is called.

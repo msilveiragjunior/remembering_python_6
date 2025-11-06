@@ -3,9 +3,11 @@ import sys
 # the system, allowing interaction from the system with the
 # python interpreter
 import pygame
+from bullet import Bullet
 
 
-def check_events(ship):
+def check_events(alien_invasion_settings, screen, ship,
+                 bullets):
     for event in pygame.event.get():
         # Here we'll watch all the events from the keyboard
         # and mouse, like button activations
@@ -20,7 +22,8 @@ def check_events(ship):
         # When a KEYDOWN event is detected, we will verify, with
         # the constant K_RIGHT.
         if event.type == pygame.KEYDOWN:
-            check_keydown_events(event, ship)
+            check_keydown_events(event, alien_invasion_settings,
+                                 screen, ship, bullets)
         elif event.type == pygame.KEYUP:
             check_keyup_events(event, ship)
         # By doing this, we'll check the functions of
@@ -28,7 +31,8 @@ def check_events(ship):
         # the file cleaner.
 
 
-def check_keydown_events(event, ship):
+def check_keydown_events(event, alien_invasion_settings, screen, ship,
+                         bullets):
     if event.key == pygame.K_RIGHT:
         # If the attribute defined before in the for
         # loop - i.e. event - .key is equal to the constant K_RIGHT,
@@ -40,6 +44,12 @@ def check_keydown_events(event, ship):
         # Here we almost repeat the code to move to the right,
         # but we use the constant K_LEFT to check if the arrow
         # pressed is the left arrow.
+    elif event.key == pygame.K_SPACE:
+        new_bullet = Bullet(alien_invasion_settings, screen, ship)
+        # Here we instantiate a bullet from the class Bullet, sending the
+        # settings, screen and ship to it.
+        bullets.add(new_bullet)
+        # Here we add new bullets to the set bullets, inside alien_invasion.py
 
 
 def check_keyup_events(event, ship):
@@ -56,12 +66,17 @@ def check_keyup_events(event, ship):
         # left arrow has stopped.
 
 
-def update_screen(alien_invasion_settings, screen, ship):
+def update_screen(alien_invasion_settings, screen, ship, bullets):
     # This will update the screen to the color that we choose
     screen.fill(alien_invasion_settings.bg_color)
     # Every time the screen updates, it will execute the code
     # above, updating the screen color to the contained rgb
     # 3-tuple contained inside bg_color
+
+    # We draw all the bullets here
+    for bullet in bullets.sprites():
+        bullet.draw_bullet()
+
     ship.blitme()
     # The blitme method is inside the class Ship, that is inside
     # the object ship that we've instantiated. This

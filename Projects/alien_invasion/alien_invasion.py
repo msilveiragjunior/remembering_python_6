@@ -2,6 +2,7 @@ import pygame
 from settings import Settings
 from ship import Ship
 import game_functions as gf
+from pygame.sprite import Group
 
 
 def run_game():
@@ -24,16 +25,24 @@ def run_game():
     # can change the rhythm of the game as the player
     # evolves in it.
 
+    # Create the group for the bullets to be stored
+    bullets = Group()
     # This will create the main loop of the game
     while True:
-        gf.check_events(ship)
+        gf.check_events(alien_invasion_settings, screen, ship, bullets)
         # This has check all the events that occurs with the mouse
         # and the keyboard.
         ship.update()
         # Here we'll make the ship position be updated
         # every time we check the events from the ship, inside
         # the while loop.
-        gf.update_screen(alien_invasion_settings, screen, ship)
+        bullets.update()
+        # Here we'll make sure every bullet is updated.
+        # Whenever the code passes through this part, the
+        # bullets trajectory we'll be updated on the screen
+        # by the update() method from the module sprite, from
+        # pygame.
+        gf.update_screen(alien_invasion_settings, screen, ship, bullets)
         # Here we use the method update_screen from game_functions
         # to update the screen, define the background color and
         # draw the ship.
