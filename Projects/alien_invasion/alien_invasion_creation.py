@@ -266,3 +266,6 @@
 # Lets follow the book and create a class called Button,
 # since the pygame doesn't have a method to create buttons.
 # We'll create a class called Button, inside the file button.py
+
+# Now that we've done that, we need to instantiate the class
+# Button. We'll do it on the alien_invasion file.

@@ -15,7 +15,7 @@ class Button():
         self.width, self.height = 200, 50
         self.button_color = (0, 255, 0)
         self.text_color = (255, 255, 255)
-        self.font = pygame.font.Sysfont(None, 48)
+        self.font = pygame.font.SysFont(None, 48)
         # the attribute font receive from the font class,
         # Sysfont.
         # We send the argument None, which makes it use the default
@@ -33,7 +33,7 @@ class Button():
         # the button
         self.prep_msg(msg)
 
-    def prep_message(self, msg):
+    def prep_msg(self, msg):
         # Here we'll use font.render() method to render the font
         # and transform it into an image
         self.msg_image = self.font.render(msg, True, self.text_color,

@@ -5,6 +5,7 @@ from ship import Ship
 import game_functions as gf
 from pygame.sprite import Group
 from game_stats import GameStats
+from button import Button
 
 
 def run_game():
@@ -20,6 +21,9 @@ def run_game():
     pygame.display.set_caption("Alien Invasion")
     # This will set the caption on the upper bar
     # to Alien Invasion
+
+    # Here we we'll instantiate the play_button
+    play_button = Button(alien_invasion_settings, screen, "Play")
 
     # Here we'll create a clock that will serve as a variable
     # to store time.Clock() from pygame
@@ -68,8 +72,8 @@ def run_game():
             # file.
             gf.update_aliens(alien_invasion_settings, stats,
                              screen, ship, aliens, bullets)
-        gf.update_screen(alien_invasion_settings, screen, ship,
-                         aliens, bullets)
+        gf.update_screen(alien_invasion_settings, screen, stats, ship,
+                         aliens, bullets, play_button)
         # Here we use the method update_screen from game_functions
         # to update the screen, define the background color and
         # draw the ship.
