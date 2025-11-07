@@ -50,6 +50,8 @@ def check_events(alien_invasion_settings, screen, stats, play_button,
 
 def start_game(alien_invasion_settings, screen, stats,
                ship, aliens, bullets):
+    # Reinitialize the game attributes
+    alien_invasion_settings.initialize_dynamic_settings()
     # Hide the mouse cursor
     pygame.mouse.set_visible(False)
 

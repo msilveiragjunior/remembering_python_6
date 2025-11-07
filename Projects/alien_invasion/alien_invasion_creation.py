@@ -298,3 +298,15 @@
 # We are going to follow the book and create new levels of difficulty.
 # To do it, we need to modify a few things. First, we need to modify
 # the file settings.py to implement a few changes.
+
+# Now we have to reinitialize the game speed to the original values,
+# so when the player begins again the game, it will have the original
+# attributes.
+
+# ---  Showing the scores --- #
+# Lets implement a score system.
+# The score is a game statistic, so we'll need to alter
+# the game_stats.py, following the instructions from
+# Python Crash Course book.
+# We'll also have to create a new class, called Scoreboard()
+# in a new file, called scoreboard.py

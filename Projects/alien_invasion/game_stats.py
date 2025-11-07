@@ -8,3 +8,6 @@ class GameStats():
 
     def reset_stats(self):
         self.ships_left = self.alien_invasion_settings.ship_limit
+        self.score = 0
+        # We put self.score here because it will run every time
+        # the game initialize.
