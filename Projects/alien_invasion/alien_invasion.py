@@ -51,6 +51,10 @@ def run_game():
         # by the update() method from the module sprite, from
         # pygame.
         gf.update_bullets(bullets)
+        # We have to update the position of the aliens as well.
+        # So we'll call the method update_aliens, from the game_function
+        # file.
+        gf.update_aliens(aliens)
         gf.update_screen(alien_invasion_settings, screen, ship,
                          aliens, bullets)
         # Here we use the method update_screen from game_functions

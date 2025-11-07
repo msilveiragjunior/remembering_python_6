@@ -20,3 +20,5 @@ class Settings():
         self.bullet_length = 15
         self.bullet_color = (60, 60, 60)
         self.bullets_allowed = 4
+        # Speed of the alien
+        self.alien_speed_factor = 1

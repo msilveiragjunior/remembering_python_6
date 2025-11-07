@@ -160,3 +160,8 @@ def create_fleet(alien_invasion_settings, screen, ship, aliens):
         for alien_number in range(number_aliens_x):
             create_alien(alien_invasion_settings, screen, aliens,
                          alien_number, row_number)
+
+
+def update_aliens(aliens):
+    # Update the position of all aliens from the fleet
+    aliens.update()

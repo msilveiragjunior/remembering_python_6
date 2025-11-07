@@ -23,3 +23,10 @@ class Alien(Sprite):
     def blitme(self):
         self.screen.blit(self.image, self.rect)
     # Everything here is very similar to the ship class file
+
+    def update(self):
+        # Here we are making the alien move to the right
+        # So we'll sum the speed factor from the alien
+        self.rect.x += self.alien_invasion_settings.alien_speed_factor
+        # By doing this, we'll update the position of the alien - rect -,
+        # since the rect.x can store float - i.e. decimal values - to it.

@@ -169,3 +169,12 @@
 #                 alien_height - ship_height)/ (1.5 * alien_height))
 # Now that we know how many ships we can fit inside the screen,
 # we can modify the game_functions.py to properly fit our formulae
+
+# We've created our fleet of aliens, now we have to make them move.
+# Lets follow the book from Eric Matthes and make them move
+# to the right first.
+# To move the aliens to the right, we'll use the method update().
+# The method is inside alien.py and will be called for each alien
+# of the fleet.
+
+# --- Making the fleet go down and change its direction --- #
