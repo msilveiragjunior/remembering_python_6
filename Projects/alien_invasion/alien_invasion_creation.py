@@ -273,3 +273,9 @@
 # We have created the code necessary to draw a Play button
 # on the screen. Now we have to code the necessary function
 # for it to work.
+
+# Having done the above, we'll need to make the game reinitialize
+# every time we click on the play button. To make that, we need to
+# reset the statistics from the game, clean the alien ships from the
+# screen and the old bullets. Also, we'll need to create a new fleet
+# and centralize the spaceship. We'll do that following the book.

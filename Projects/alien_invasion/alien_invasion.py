@@ -52,7 +52,7 @@ def run_game():
     while True:
         clock.tick(FPS)
         gf.check_events(alien_invasion_settings, screen, stats,
-                        play_button, ship, bullets)
+                        play_button, ship, aliens, bullets)
         # This has check all the events that occurs with the mouse
         # and the keyboard.
         if stats.game_active:

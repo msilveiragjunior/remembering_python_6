@@ -9,7 +9,7 @@ from time import sleep
 
 
 def check_events(alien_invasion_settings, screen, stats, play_button,
-                 ship, bullets):
+                 ship, aliens, bullets):
     for event in pygame.event.get():
         # Here we'll watch all the events from the keyboard
         # and mouse, like button activations
@@ -43,12 +43,24 @@ def check_events(alien_invasion_settings, screen, stats, play_button,
             # This function will check if mouse, when clicked, collides
             # with the play button rect. If it does it, we'll set the
             # game_active flag to True, beginning the game.
-            check_play_button(stats, play_button, mouse_x, mouse_y)
+            check_play_button(alien_invasion_settings, screen, stats,
+                              play_button, ship, aliens, bullets, mouse_x,
+                              mouse_y)
 
 
-def check_play_button(stats, play_button, mouse_x, mouse_y):
+def check_play_button(alien_invasion_settings, screen, stats,
+                      play_button, ship, aliens, bullets, mouse_x, mouse_y):
     if play_button.rect.collidepoint(mouse_x, mouse_y):
+        stats.reset_stats()
         stats.game_active = True
+
+        # Empty the aliens and bullets group
+        aliens.empty()
+        bullets.empty()
+
+        # Create a new fleet and centralize the spaceship
+        create_fleet(alien_invasion_settings, screen, ship, aliens)
+        ship.center_ship()
 
 
 def check_keydown_events(event, alien_invasion_settings, screen, ship,
