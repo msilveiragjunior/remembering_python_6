@@ -160,7 +160,8 @@ def update_screen(alien_invasion_settings, screen, stats, sb, ship, aliens,
     # This will constantly update the game screen
 
 
-def update_bullets(alien_invasion_settings, screen, ship, aliens, bullets):
+def update_bullets(alien_invasion_settings, screen, stats, sb, ship,
+                   aliens, bullets):
     # Delete the bullets that disappear:
     for bullet in bullets.copy():
         if bullet.rect.bottom <= 0:
@@ -174,21 +175,32 @@ def update_bullets(alien_invasion_settings, screen, ship, aliens, bullets):
     # to use the method remove, removing any value
     # that is equal to the value contained inside the bullets
     # group.
-    check_bullet_alien_collisions(alien_invasion_settings, screen, ship,
-                                  aliens, bullets)
+    check_bullet_alien_collisions(alien_invasion_settings, screen, stats, sb,
+                                  ship, aliens, bullets)
 
 
-def check_bullet_alien_collisions(alien_invasion_settings, screen, ship,
-                                  aliens, bullets):
+def check_bullet_alien_collisions(alien_invasion_settings, screen, stats, sb,
+                                  ship, aliens, bullets):
     # Here we'll use the code groupcollide() to calculate
     # if the bullet hit any alien
-    pygame.sprite.groupcollide(bullets, aliens,
-                               True, True)
+    collision = pygame.sprite.groupcollide(bullets, aliens,
+                                           True, True)
     # If we want to make the bullets go through all aliens behind,
     # and to the top border of the screen, we can make the first bool
     # value False, this way we'll deactivate the dokill1 parameter code.
     # By doing this, we'll not make the bullets disappear when it hits
     # a alien.
+
+    # Now we'll check if any collision has occur, so we can
+    # sum the points from the settings dynamic values to the
+    # scoreboard class that is instantiated.
+    if collision:
+        stats.score += alien_invasion_settings.alien_points
+        sb.prep_score()
+        # Here we'll sum the alien_points defined to be dynamic
+        # to the stats.score object that've instantiated.
+        # the prep_score() method, from sb, will render the new
+        # score on the screen.
 
     # Here we can create a new fleet if aliens.Group() is empty.
     if len(aliens) == 0:
