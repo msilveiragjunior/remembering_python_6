@@ -294,3 +294,7 @@
 
 # Lets do the 14.1 exercise from the book and implement it in the game.
 # It will make us think a little bit.
+
+# We are going to follow the book and create new levels of difficulty.
+# To do it, we need to modify a few things. First, we need to modify
+# the file settings.py to implement a few changes.

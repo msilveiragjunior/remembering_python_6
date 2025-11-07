@@ -189,6 +189,10 @@ def check_bullet_alien_collisions(alien_invasion_settings, screen, ship,
     if len(aliens) == 0:
         # Destroys empty bullets and creates a new fleet
         bullets.empty()
+        alien_invasion_settings.increase_speed()
+        # Here we call the function increase_speed, so every time
+        # the player kills every alien, the speedup_scale will
+        # multiply the dynamic attributes, making the game harder.
         create_fleet(alien_invasion_settings, screen, ship, aliens)
         # The empty() method removes all the sprites remaining in a Group.
         # In this case, the bullets.Group(), before creating a new fleet.
