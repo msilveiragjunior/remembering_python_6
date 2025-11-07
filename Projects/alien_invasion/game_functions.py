@@ -24,8 +24,8 @@ def check_events(alien_invasion_settings, screen, stats, play_button,
         # When a KEYDOWN event is detected, we will verify, with
         # the constant K_RIGHT.
         if event.type == pygame.KEYDOWN:
-            check_keydown_events(event, alien_invasion_settings,
-                                 screen, ship, bullets)
+            check_keydown_events(event, alien_invasion_settings, screen,
+                                 stats, ship, aliens, bullets)
         elif event.type == pygame.KEYUP:
             check_keyup_events(event, ship)
         # By doing this, we'll check the functions of
@@ -48,24 +48,47 @@ def check_events(alien_invasion_settings, screen, stats, play_button,
                               mouse_y)
 
 
+def start_game(alien_invasion_settings, screen, stats,
+               ship, aliens, bullets):
+    # Hide the mouse cursor
+    pygame.mouse.set_visible(False)
+
+    stats.reset_stats()
+    stats.game_active = True
+
+    # Empty the aliens and bullets group
+    aliens.empty()
+    bullets.empty()
+
+    # Create a new fleet and centralize the spaceship
+    create_fleet(alien_invasion_settings, screen, ship, aliens)
+    ship.center_ship()
+
+
 def check_play_button(alien_invasion_settings, screen, stats,
                       play_button, ship, aliens, bullets, mouse_x, mouse_y):
     button_click = play_button.rect.collidepoint(mouse_x, mouse_y)
     if button_click and not stats.game_active:
-        stats.reset_stats()
-        stats.game_active = True
 
-        # Empty the aliens and bullets group
-        aliens.empty()
-        bullets.empty()
+        # Hide the mouse cursor
+        # pygame.mouse.set_visible(False)
 
-        # Create a new fleet and centralize the spaceship
-        create_fleet(alien_invasion_settings, screen, ship, aliens)
-        ship.center_ship()
+        # stats.reset_stats()
+        # stats.game_active = True
+
+        # # Empty the aliens and bullets group
+        # aliens.empty()
+        # bullets.empty()
+
+        # # Create a new fleet and centralize the spaceship
+        # create_fleet(alien_invasion_settings, screen, ship, aliens)
+        # ship.center_ship()
+        start_game(alien_invasion_settings, screen, stats,
+                   ship, aliens, bullets)
 
 
-def check_keydown_events(event, alien_invasion_settings, screen, ship,
-                         bullets):
+def check_keydown_events(event, alien_invasion_settings, screen,
+                         stats, ship, aliens, bullets):
     if event.key == pygame.K_RIGHT:
         # If the attribute defined before in the for
         # loop - i.e. event - .key is equal to the constant K_RIGHT,
@@ -84,6 +107,10 @@ def check_keydown_events(event, alien_invasion_settings, screen, ship,
         # When the interpreter sees that the player pressed
         # the letter Q, the game exit, using a sys method called
         # exit()
+    # Here we'll start the game if the player press the 'P' button
+    elif event.key == pygame.K_p and not stats.game_active:
+        start_game(alien_invasion_settings, screen,
+                   stats, ship, aliens, bullets)
 
 
 def check_keyup_events(event, ship):

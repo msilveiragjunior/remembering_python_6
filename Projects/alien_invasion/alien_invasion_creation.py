@@ -286,3 +286,11 @@
 # modify the check_play_button function, so to only make the play button
 # clickable when the game_active flag is false.
 # So lets do it
+
+# Now we want the mouse to only be shown on the game screen when, and
+# only when, the game is not active. We can do it by using
+# the pygame method mouse.set_visible(False) after the play button
+# is clicked.
+
+# Lets do the 14.1 exercise from the book and implement it in the game.
+# It will make us think a little bit.
