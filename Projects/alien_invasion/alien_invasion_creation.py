@@ -228,3 +228,11 @@
 # calculate if the two intersect each other. It will return
 # a boolean value showing if it has happened or not.
 # So lets create a function to detect it
+
+# Now we need to create a class to store statistics from the game,
+# like how many times the ship has been hit. How many aliens it has
+# destroyed and so on...
+# Lets create a new file, following the book from Eric Matthes, called
+# game_stats.py
+# We'll have to modify a lot of files to make this work, like game_functions,
+# alien_invasion and more...

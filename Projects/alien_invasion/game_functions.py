@@ -5,6 +5,7 @@ import sys
 import pygame
 from bullet import Bullet
 from alien import Alien
+from time import sleep
 
 
 def check_events(alien_invasion_settings, screen, ship,
@@ -204,11 +205,31 @@ def change_fleet_direction(alien_invasion_settings, aliens):
     alien_invasion_settings.fleet_direction *= -1
 
 
-def update_aliens(alien_invasion_settings, ship, aliens):
+def update_aliens(alien_invasion_settings, stats, screen, ship, aliens,
+                  bullets):
     # Update the position of all aliens from the fleet
     # Now it also checks if the fleet is on the border of the screen
     check_fleet_edges(alien_invasion_settings, aliens)
     aliens.update()
     # Check if there's any collisions between the ship and the aliens
     if pygame.sprite.spritecollideany(ship, aliens):
-        print("Ship Hit.")
+        ship_hit(alien_invasion_settings, stats, screen, ship, aliens,
+                 bullets)
+
+
+def ship_hit(alien_invasion_settings, stats, screen, ship, aliens,
+             bullets):
+    # -1 to ships_left
+    stats.ships_left -= 1
+
+    # Empty the list of aliens and bullets
+    aliens.empty()
+    bullets.empty()
+
+    # Creates a new fleet and centralize the spaceship
+    create_fleet(alien_invasion_settings, screen, ship, aliens)
+    ship.center_ship()
+
+    # Uses the sleep function from the time module to
+    # give a little time for the player
+    sleep(1)

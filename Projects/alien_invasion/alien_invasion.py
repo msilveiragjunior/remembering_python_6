@@ -4,6 +4,7 @@ from ship import Ship
 # from alien import Alien
 import game_functions as gf
 from pygame.sprite import Group
+from game_stats import GameStats
 
 
 def run_game():
@@ -24,6 +25,9 @@ def run_game():
     # to store time.Clock() from pygame
     clock = pygame.time.Clock()
     FPS = 60
+
+    # Instantiating a new object to store data from the game
+    stats = GameStats(alien_invasion_settings)
 
     # Creating the object ship
     ship = Ship(alien_invasion_settings, screen)
@@ -61,7 +65,8 @@ def run_game():
         # We have to update the position of the aliens as well.
         # So we'll call the method update_aliens, from the game_function
         # file.
-        gf.update_aliens(alien_invasion_settings, ship, aliens)
+        gf.update_aliens(alien_invasion_settings, stats,
+                         screen, ship, aliens, bullets)
         gf.update_screen(alien_invasion_settings, screen, ship,
                          aliens, bullets)
         # Here we use the method update_screen from game_functions
