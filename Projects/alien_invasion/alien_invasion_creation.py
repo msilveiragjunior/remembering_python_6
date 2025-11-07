@@ -215,3 +215,16 @@
 # We'll do this by limiting the fps of the game.
 # We've modified the ship speed, the bullet speed and the alien
 # fleet speed to account for the limitation of fps.
+
+# Now we're going to refactor the update_bullet() function,
+# and create a new function to check the alien collision with
+# bullets, AND to create a new fleet.
+
+# We need to detect if the ship has been hit by any alien ship.
+# To do so, we need to use the spritecollideany(sprite, group, collided = none)
+# If the sprite collides with anything inside the group, if there's
+# no collision, none is returned.
+# It will take two sprites, one from sprite and one from group and
+# calculate if the two intersect each other. It will return
+# a boolean value showing if it has happened or not.
+# So lets create a function to detect it

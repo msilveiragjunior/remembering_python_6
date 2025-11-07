@@ -105,7 +105,12 @@ def update_bullets(alien_invasion_settings, screen, ship, aliens, bullets):
     # to use the method remove, removing any value
     # that is equal to the value contained inside the bullets
     # group.
+    check_bullet_alien_collisions(alien_invasion_settings, screen, ship,
+                                  aliens, bullets)
 
+
+def check_bullet_alien_collisions(alien_invasion_settings, screen, ship,
+                                  aliens, bullets):
     # Here we'll use the code groupcollide() to calculate
     # if the bullet hit any alien
     pygame.sprite.groupcollide(bullets, aliens,
@@ -199,8 +204,11 @@ def change_fleet_direction(alien_invasion_settings, aliens):
     alien_invasion_settings.fleet_direction *= -1
 
 
-def update_aliens(alien_invasion_settings, aliens):
+def update_aliens(alien_invasion_settings, ship, aliens):
     # Update the position of all aliens from the fleet
     # Now it also checks if the fleet is on the border of the screen
     check_fleet_edges(alien_invasion_settings, aliens)
     aliens.update()
+    # Check if there's any collisions between the ship and the aliens
+    if pygame.sprite.spritecollideany(ship, aliens):
+        print("Ship Hit.")
