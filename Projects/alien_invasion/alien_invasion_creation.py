@@ -236,3 +236,16 @@
 # game_stats.py
 # We'll have to modify a lot of files to make this work, like game_functions,
 # alien_invasion and more...
+
+# Lets make the aliens that hit the bottom, the border of the screen,
+# make the game respond as if the ship has been hit.
+# We'll need to modify the game_functions.py and add a new function,
+# just to check if they hit the bottom of the screen.
+# This can easily been done by checking if the rect.bottom of the alien
+# ship is >= to the rect_bottom of the screen.
+
+# The game looks like ready, but it's not.
+# The ships_left variable gets to even lower negative values.
+# We need to stop the game when we have no ships_left. So lets
+# follow the book and add a flag attribute to game_stats, so
+# we can end the game when we have no ships left to use.

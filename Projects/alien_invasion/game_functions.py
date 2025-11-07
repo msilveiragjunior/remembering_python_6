@@ -205,6 +205,23 @@ def change_fleet_direction(alien_invasion_settings, aliens):
     alien_invasion_settings.fleet_direction *= -1
 
 
+def check_aliens_bottom(alien_invasion_settings, stats, screen, ship, aliens,
+                        bullets):
+    # Now we'll create a variable the will inherit the width and length of
+    # the screen
+    screen_rect = screen.get_rect()
+    # Now we'll check if any alien, for any alien in the Group() aliens, has
+    # hit the bottom of the screen, using the logic explained on
+    # alien_invasion_creation file.
+    for alien in aliens.sprites():
+        # This will deal with the sprites from the aliens.
+        if alien.rect.bottom >= screen_rect.bottom:
+            # calls shit_hit() function
+            ship_hit(alien_invasion_settings, stats, screen, ship, aliens,
+                     bullets)
+            break
+
+
 def update_aliens(alien_invasion_settings, stats, screen, ship, aliens,
                   bullets):
     # Update the position of all aliens from the fleet
@@ -215,21 +232,29 @@ def update_aliens(alien_invasion_settings, stats, screen, ship, aliens,
     if pygame.sprite.spritecollideany(ship, aliens):
         ship_hit(alien_invasion_settings, stats, screen, ship, aliens,
                  bullets)
+    # Check if any alien has hit the bottom of the screen
+    check_aliens_bottom(alien_invasion_settings, stats, screen, ship, aliens,
+                        bullets)
 
 
 def ship_hit(alien_invasion_settings, stats, screen, ship, aliens,
              bullets):
-    # -1 to ships_left
-    stats.ships_left -= 1
+    # We'll implement the end of the game here, by seeing if the
+    # ship has been hit 'n' times.
+    if stats.ships_left > 0:
+        # -1 to ships_left
+        stats.ships_left -= 1
 
-    # Empty the list of aliens and bullets
-    aliens.empty()
-    bullets.empty()
+        # Empty the list of aliens and bullets
+        aliens.empty()
+        bullets.empty()
 
-    # Creates a new fleet and centralize the spaceship
-    create_fleet(alien_invasion_settings, screen, ship, aliens)
-    ship.center_ship()
+        # Creates a new fleet and centralize the spaceship
+        create_fleet(alien_invasion_settings, screen, ship, aliens)
+        ship.center_ship()
 
-    # Uses the sleep function from the time module to
-    # give a little time for the player
-    sleep(1)
+        # Uses the sleep function from the time module to
+        # give a little time for the player
+        sleep(1)
+    else:
+        stats.game_active = False

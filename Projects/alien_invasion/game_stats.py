@@ -2,6 +2,7 @@ class GameStats():
 
     def __init__(self, alien_invasion_settings):
         self.alien_invasion_settings = alien_invasion_settings
+        self.game_active = True
         self.reset_stats()
 
     def reset_stats(self):

@@ -50,23 +50,24 @@ def run_game():
         gf.check_events(alien_invasion_settings, screen, ship, bullets)
         # This has check all the events that occurs with the mouse
         # and the keyboard.
-        ship.update()
-        # Here we'll make the ship position be updated
-        # every time we check the events from the ship, inside
-        # the while loop.
-        bullets.update()
-        # Here we'll make sure every bullet is updated.
-        # Whenever the code passes through this part, the
-        # bullets trajectory we'll be updated on the screen
-        # by the update() method from the module sprite, from
-        # pygame.
-        gf.update_bullets(alien_invasion_settings, screen, ship, aliens,
-                          bullets)
-        # We have to update the position of the aliens as well.
-        # So we'll call the method update_aliens, from the game_function
-        # file.
-        gf.update_aliens(alien_invasion_settings, stats,
-                         screen, ship, aliens, bullets)
+        if stats.game_active:
+            ship.update()
+            # Here we'll make the ship position be updated
+            # every time we check the events from the ship, inside
+            # the while loop.
+            bullets.update()
+            # Here we'll make sure every bullet is updated.
+            # Whenever the code passes through this part, the
+            # bullets trajectory we'll be updated on the screen
+            # by the update() method from the module sprite, from
+            # pygame.
+            gf.update_bullets(alien_invasion_settings, screen, ship, aliens,
+                              bullets)
+            # We have to update the position of the aliens as well.
+            # So we'll call the method update_aliens, from the game_function
+            # file.
+            gf.update_aliens(alien_invasion_settings, stats,
+                             screen, ship, aliens, bullets)
         gf.update_screen(alien_invasion_settings, screen, ship,
                          aliens, bullets)
         # Here we use the method update_screen from game_functions
