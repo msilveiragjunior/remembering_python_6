@@ -8,8 +8,8 @@ from alien import Alien
 from time import sleep
 
 
-def check_events(alien_invasion_settings, screen, ship,
-                 bullets):
+def check_events(alien_invasion_settings, screen, stats, play_button,
+                 ship, bullets):
     for event in pygame.event.get():
         # Here we'll watch all the events from the keyboard
         # and mouse, like button activations
@@ -31,6 +31,24 @@ def check_events(alien_invasion_settings, screen, ship,
         # By doing this, we'll check the functions of
         # the events that are now separated, making
         # the file cleaner.
+
+        # We'll create a event.type to activate the play button
+        # when the mouse clicks on the play button.
+        # To do it, we'll have to get the mouse position, and we'll
+        # do that using mouse.get_pos() method. It returns a tuple
+        # of (x,y) coordinates of the mouse.
+        elif event.type == pygame.MOUSEBUTTONDOWN:
+            mouse_x, mouse_y = pygame.mouse.get_pos()
+            # Here we'll call a function that we are going to create.
+            # This function will check if mouse, when clicked, collides
+            # with the play button rect. If it does it, we'll set the
+            # game_active flag to True, beginning the game.
+            check_play_button(stats, play_button, mouse_x, mouse_y)
+
+
+def check_play_button(stats, play_button, mouse_x, mouse_y):
+    if play_button.rect.collidepoint(mouse_x, mouse_y):
+        stats.game_active = True
 
 
 def check_keydown_events(event, alien_invasion_settings, screen, ship,

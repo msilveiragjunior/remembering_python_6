@@ -269,3 +269,7 @@
 
 # Now that we've done that, we need to instantiate the class
 # Button. We'll do it on the alien_invasion file.
+
+# We have created the code necessary to draw a Play button
+# on the screen. Now we have to code the necessary function
+# for it to work.
