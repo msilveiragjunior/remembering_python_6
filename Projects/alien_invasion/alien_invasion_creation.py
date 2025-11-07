@@ -279,3 +279,10 @@
 # reset the statistics from the game, clean the alien ships from the
 # screen and the old bullets. Also, we'll need to create a new fleet
 # and centralize the spaceship. We'll do that following the book.
+
+# We have one problem with the play button: even when it disappears,
+# it will still be active. So we need to deal with it. We need to make
+# active only when the game_active flag is False. We need to
+# modify the check_play_button function, so to only make the play button
+# clickable when the game_active flag is false.
+# So lets do it

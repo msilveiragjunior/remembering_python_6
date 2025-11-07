@@ -50,7 +50,8 @@ def check_events(alien_invasion_settings, screen, stats, play_button,
 
 def check_play_button(alien_invasion_settings, screen, stats,
                       play_button, ship, aliens, bullets, mouse_x, mouse_y):
-    if play_button.rect.collidepoint(mouse_x, mouse_y):
+    button_click = play_button.rect.collidepoint(mouse_x, mouse_y)
+    if button_click and not stats.game_active:
         stats.reset_stats()
         stats.game_active = True
 
@@ -181,7 +182,7 @@ def get_number_aliens_x(alien_invasion_settings, alien_width):
     # to calculate the number of aliens in a line
     # The spacing between aliens are half of the width of a alien ship
     number_aliens_x = int((alien_invasion_settings.screen_width
-                          - (1.5 * alien_width)) / (1.5 * alien_width))
+                          - (1.7 * alien_width)) / (1.5 * alien_width))
     return number_aliens_x
 
 
