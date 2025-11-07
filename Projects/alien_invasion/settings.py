@@ -39,6 +39,8 @@ class Settings():
         self.alien_speed_factor = 4
         # Fleet = 1 goes to right; -1 goes to left
         self.fleet_direction = 1
+        # Points to sum to the score
+        self.alien_points = 50
 
     def increase_speed(self):
         # This method will be used to multiply the dynamic

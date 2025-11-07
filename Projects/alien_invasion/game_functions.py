@@ -129,13 +129,16 @@ def check_keyup_events(event, ship):
         # left arrow has stopped.
 
 
-def update_screen(alien_invasion_settings, screen, stats, ship, aliens,
+def update_screen(alien_invasion_settings, screen, stats, sb, ship, aliens,
                   bullets, play_button):
     # This will update the screen to the color that we choose
     screen.fill(alien_invasion_settings.bg_color)
     # Every time the screen updates, it will execute the code
     # above, updating the screen color to the contained rgb
     # 3-tuple contained inside bg_color
+
+    # Draws the scoreboard
+    sb.show_score()
 
     # Drawing the Play button if the game_active flag is False
     if not stats.game_active:

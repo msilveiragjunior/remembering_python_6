@@ -310,3 +310,9 @@
 # Python Crash Course book.
 # We'll also have to create a new class, called Scoreboard()
 # in a new file, called scoreboard.py
+
+# Being done with it, we'll create a scoreboard panel
+# inside alien_invasion
+
+# Now we need to update the scoreboard every time
+# we kill an alien. We'll follow the book.

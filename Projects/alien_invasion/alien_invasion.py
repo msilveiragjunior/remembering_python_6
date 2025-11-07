@@ -6,6 +6,7 @@ import game_functions as gf
 from pygame.sprite import Group
 from game_stats import GameStats
 from button import Button
+from scoreboard import Scoreboard
 
 
 def run_game():
@@ -33,6 +34,9 @@ def run_game():
     # Instantiating a new object to store data from the game
     stats = GameStats(alien_invasion_settings)
 
+    # Instantiate the scoreboard
+    sb = Scoreboard(alien_invasion_settings, screen, stats)
+
     # Creating the object ship
     ship = Ship(alien_invasion_settings, screen)
     # Now we've added the speed factor to the ship, and
@@ -48,6 +52,7 @@ def run_game():
     aliens = Group()
     # Create the alien fleet
     gf.create_fleet(alien_invasion_settings, screen, ship, aliens)
+
     # This will create the main loop of the game
     while True:
         clock.tick(FPS)
@@ -73,7 +78,7 @@ def run_game():
             # file.
             gf.update_aliens(alien_invasion_settings, stats,
                              screen, ship, aliens, bullets)
-        gf.update_screen(alien_invasion_settings, screen, stats, ship,
+        gf.update_screen(alien_invasion_settings, screen, stats, sb, ship,
                          aliens, bullets, play_button)
         # Here we use the method update_screen from game_functions
         # to update the screen, define the background color and
