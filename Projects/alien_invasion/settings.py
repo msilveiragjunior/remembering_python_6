@@ -21,4 +21,8 @@ class Settings():
         self.bullet_color = (60, 60, 60)
         self.bullets_allowed = 4
         # Speed of the alien
-        self.alien_speed_factor = 1
+        self.alien_speed_factor = 10
+        # Speed of the drop
+        self.fleet_drop_speed = 1
+        # Fleet = 1 goes to right; -1 goes to left
+        self.fleet_direction = 1

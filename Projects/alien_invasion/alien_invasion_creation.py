@@ -177,4 +177,13 @@
 # The method is inside alien.py and will be called for each alien
 # of the fleet.
 
-# --- Making the fleet go down and change its direction --- #
+# Lets create a drop_speed for the fleet, so it can go down,
+# and create a variable for its direction inside the settings.py
+# We can alternate between 1 and -1 to define if it's going
+# to the right or to the left. To use numbers make sense,
+# because we can change the numbers and alternate the values
+# every time the fleet changes direction.
+
+# Now we can make the fleet go down and change its direction
+# we'll do this by creating new functions, following the book
+# instructions

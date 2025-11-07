@@ -162,6 +162,26 @@ def create_fleet(alien_invasion_settings, screen, ship, aliens):
                          alien_number, row_number)
 
 
-def update_aliens(aliens):
+def check_fleet_edges(alien_invasion_settings, aliens):
+    # Check if the fleet is on the either border of the screen
+    for alien in aliens.sprites():
+        change_fleet_direction(alien_invasion_settings, aliens)
+        break
+
+
+def change_fleet_direction(alien_invasion_settings, aliens):
+    # Make the fleet go down and change its direction
+    # by altering the fleet direction
+    for alien in aliens.sprites():
+        alien.rect.y += alien_invasion_settings.fleet_drop_speed
+    # Then we multiply by -1. If it is 1, then the value goes
+    # to -1; if it is -1, the value goes to 1. It's the logical
+    # way to go it
+    alien_invasion_settings.fleet_direction *= -1
+
+
+def update_aliens(alien_invasion_settings, aliens):
     # Update the position of all aliens from the fleet
+    # Now it also checks if the fleet is on the border of the screen
+    check_fleet_edges(alien_invasion_settings, aliens)
     aliens.update()
