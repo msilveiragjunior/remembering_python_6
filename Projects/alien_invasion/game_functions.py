@@ -126,22 +126,37 @@ def get_number_aliens_x(alien_invasion_settings, alien_width):
     return number_aliens_x
 
 
-def create_alien(alien_invasion_settings, screen, aliens, alien_number):
+def get_number_rows(alien_invasion_settings, ship_height, alien_height):
+    # Define the number of aliens that fit on the screen
+    number_rows = int(((alien_invasion_settings.screen_length - 3 *
+                        alien_height - ship_height) / (2 * alien_height)))
+    return number_rows
+
+
+def create_alien(alien_invasion_settings, screen, aliens, alien_number,
+                 row_number):
     alien = Alien(alien_invasion_settings, screen)
     alien_width = alien.rect.width
     alien = Alien(alien_invasion_settings, screen)
     alien.x = int(alien_width + 1.5 * alien_width * alien_number)
     alien.rect.x = alien.x
+    alien.rect.y = alien.rect.height + 1.5 * alien.rect.height * row_number
     aliens.add(alien)
 
 
-def create_fleet(alien_invasion_settings, screen, aliens):
+def create_fleet(alien_invasion_settings, screen, ship, aliens):
 
     alien = Alien(alien_invasion_settings, screen)
     number_aliens_x = get_number_aliens_x(alien_invasion_settings,
                                           alien.rect.width)
+    number_rows = get_number_rows(alien_invasion_settings, ship.rect.height,
+                                  alien.alien_height)
 
     # Creating the first line of aliens
-    for alien_number in range(number_aliens_x):
-        create_alien(alien_invasion_settings, screen, aliens,
-                     alien_number)
+    # for alien_number in range(number_aliens_x):
+    #    create_alien(alien_invasion_settings, screen, aliens,
+    #                 alien_number)
+    for row_number in range(number_rows):
+        for alien_number in range(number_aliens_x):
+            create_alien(alien_invasion_settings, screen, aliens,
+                         alien_number, row_number)

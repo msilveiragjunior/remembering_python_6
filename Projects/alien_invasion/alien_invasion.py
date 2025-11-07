@@ -34,7 +34,7 @@ def run_game():
     # Create the group for the aliens to be stored
     aliens = Group()
     # Create the alien fleet
-    gf.create_fleet(alien_invasion_settings, screen, aliens)
+    gf.create_fleet(alien_invasion_settings, screen, ship, aliens)
     # This will create the main loop of the game
     while True:
         gf.check_events(alien_invasion_settings, screen, ship, bullets)

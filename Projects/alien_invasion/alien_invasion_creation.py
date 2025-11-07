@@ -160,3 +160,12 @@
 # We'll create two new functions to make the game_functions.py
 # cleaner: get_number_aliens_x() and create_alien()
 # We are doing this to make it easier to work with them.
+
+# Lets add lines to our fleet. To do so, we need to determine
+# the number of lines that fit on the screen, and then we will
+# repeat the loop that creates aliens on a line.
+# To determine this we can use this formulae:
+# number_rows = ((alien_invasion_settings.screen_length - 3 *
+#                 alien_height - ship_height)/ (1.5 * alien_height))
+# Now that we know how many ships we can fit inside the screen,
+# we can modify the game_functions.py to properly fit our formulae

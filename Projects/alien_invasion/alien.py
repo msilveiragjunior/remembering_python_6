@@ -15,6 +15,7 @@ class Alien(Sprite):
         # of the screen
         self.rect.x = self.rect.width
         self.rect.y = self.rect.height
+        self.alien_height = self.rect.y
         # Storing the position of the alien
         self.x = float(self.rect.x)
 
