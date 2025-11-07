@@ -13,16 +13,16 @@ class Settings():
 
         # Here we'll make an attribute that will
         # alter the spaceship speed factor
-        self.ship_speed_factor = 1.5
+        self.ship_speed_factor = 8
         # Projectile information
-        self.bullet_speed_factor = 1
+        self.bullet_speed_factor = 4
         self.bullet_width = 3
         self.bullet_length = 15
         self.bullet_color = (60, 60, 60)
-        self.bullets_allowed = 4
+        self.bullets_allowed = 7
         # Speed of the alien
-        self.alien_speed_factor = 10
+        self.alien_speed_factor = 5
         # Speed of the drop
-        self.fleet_drop_speed = float(0.3)
+        self.fleet_drop_speed = 1
         # Fleet = 1 goes to right; -1 goes to left
         self.fleet_direction = 1

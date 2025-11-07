@@ -91,7 +91,7 @@ def update_screen(alien_invasion_settings, screen, ship, aliens, bullets):
     # This will constantly update the game screen
 
 
-def update_bullets(aliens, bullets):
+def update_bullets(alien_invasion_settings, screen, ship, aliens, bullets):
     # Delete the bullets that disappear:
     for bullet in bullets.copy():
         if bullet.rect.bottom <= 0:
@@ -115,6 +115,14 @@ def update_bullets(aliens, bullets):
     # value False, this way we'll deactivate the dokill1 parameter code.
     # By doing this, we'll not make the bullets disappear when it hits
     # a alien.
+
+    # Here we can create a new fleet if aliens.Group() is empty.
+    if len(aliens) == 0:
+        # Destroys empty bullets and creates a new fleet
+        bullets.empty()
+        create_fleet(alien_invasion_settings, screen, ship, aliens)
+        # The empty() method removes all the sprites remaining in a Group.
+        # In this case, the bullets.Group(), before creating a new fleet.
 
 
 def fire_bullets(alien_invasion_settings, screen, ship, bullets):

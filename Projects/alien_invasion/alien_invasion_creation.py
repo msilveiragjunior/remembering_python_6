@@ -208,3 +208,10 @@
 # We've created the collision function. Now we need to repopulate
 # the fleet of aliens so, if we destroy all of them, they will
 # reappear.
+
+# At least for my computer, the alien fleet is dropping too fast.
+# So we'll update the frames per second, now we'll not follow
+# Eric Matthes book.
+# We'll do this by limiting the fps of the game.
+# We've modified the ship speed, the bullet speed and the alien
+# fleet speed to account for the limitation of fps.

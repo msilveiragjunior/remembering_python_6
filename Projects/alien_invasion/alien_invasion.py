@@ -20,6 +20,11 @@ def run_game():
     # This will set the caption on the upper bar
     # to Alien Invasion
 
+    # Here we'll create a clock that will serve as a variable
+    # to store time.Clock() from pygame
+    clock = pygame.time.Clock()
+    FPS = 60
+
     # Creating the object ship
     ship = Ship(alien_invasion_settings, screen)
     # Now we've added the speed factor to the ship, and
@@ -37,6 +42,7 @@ def run_game():
     gf.create_fleet(alien_invasion_settings, screen, ship, aliens)
     # This will create the main loop of the game
     while True:
+        clock.tick(FPS)
         gf.check_events(alien_invasion_settings, screen, ship, bullets)
         # This has check all the events that occurs with the mouse
         # and the keyboard.
@@ -50,7 +56,8 @@ def run_game():
         # bullets trajectory we'll be updated on the screen
         # by the update() method from the module sprite, from
         # pygame.
-        gf.update_bullets(aliens, bullets)
+        gf.update_bullets(alien_invasion_settings, screen, ship, aliens,
+                          bullets)
         # We have to update the position of the aliens as well.
         # So we'll call the method update_aliens, from the game_function
         # file.
