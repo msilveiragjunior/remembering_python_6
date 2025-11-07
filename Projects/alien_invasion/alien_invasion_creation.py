@@ -249,3 +249,20 @@
 # We need to stop the game when we have no ships_left. So lets
 # follow the book and add a flag attribute to game_stats, so
 # we can end the game when we have no ships left to use.
+
+# ---  Points, play button and game stats --- #
+# Now we'll follow, to the end, the rest of the first
+# project of the book from Eric Matthes.
+# We'll add a play button; change the game pace to make it
+# more challenging and add a point system.
+# We will begin by adding the play button when the game.
+# It'll appear when we open the game.
+
+# When the game begins, it need to be in an inactive state,
+# so lets change the game_active flag to False.
+# By doing it, we can watch for a keypress to change the flag
+# and begin playing.
+
+# Lets follow the book and create a class called Button,
+# since the pygame doesn't have a method to create buttons.
+# We'll create a class called Button, inside the file button.py
