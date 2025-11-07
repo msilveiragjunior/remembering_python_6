@@ -316,3 +316,8 @@
 
 # Now we need to update the scoreboard every time
 # we kill an alien. We'll follow the book.
+
+# We need to make sure all the hits are counted.
+# Now, if two bullets collide with aliens on the same loop, only
+# one alien hit will be summed to the score. We can do it by modifying
+# the game_functions file to properly check for all collisions.

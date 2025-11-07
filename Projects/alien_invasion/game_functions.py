@@ -195,12 +195,20 @@ def check_bullet_alien_collisions(alien_invasion_settings, screen, stats, sb,
     # sum the points from the settings dynamic values to the
     # scoreboard class that is instantiated.
     if collision:
-        stats.score += alien_invasion_settings.alien_points
-        sb.prep_score()
-        # Here we'll sum the alien_points defined to be dynamic
-        # to the stats.score object that've instantiated.
-        # the prep_score() method, from sb, will render the new
-        # score on the screen.
+        for alien in collision.values():
+            a_i = alien_invasion_settings
+            stats.score += a_i.alien_points * len(alien)
+            # Now we'll check the dictionary collision for any
+            # new collision, and for every alien inside the list
+            # we'll multiply the points to be summed by the
+            # length of alien in the for loop, because it'll
+            # contain all the aliens that've collided in any
+            # given loop
+            sb.prep_score()
+            # Here we'll sum the alien_points defined to be dynamic
+            # to the stats.score object that've instantiated.
+            # the prep_score() method, from sb, will render the new
+            # score on the screen.
 
     # Here we can create a new fleet if aliens.Group() is empty.
     if len(aliens) == 0:
