@@ -91,7 +91,7 @@ def update_screen(alien_invasion_settings, screen, ship, aliens, bullets):
     # This will constantly update the game screen
 
 
-def update_bullets(bullets):
+def update_bullets(aliens, bullets):
     # Delete the bullets that disappear:
     for bullet in bullets.copy():
         if bullet.rect.bottom <= 0:
@@ -105,6 +105,16 @@ def update_bullets(bullets):
     # to use the method remove, removing any value
     # that is equal to the value contained inside the bullets
     # group.
+
+    # Here we'll use the code groupcollide() to calculate
+    # if the bullet hit any alien
+    pygame.sprite.groupcollide(bullets, aliens,
+                               True, True)
+    # If we want to make the bullets go through all aliens behind,
+    # and to the top border of the screen, we can make the first bool
+    # value False, this way we'll deactivate the dokill1 parameter code.
+    # By doing this, we'll not make the bullets disappear when it hits
+    # a alien.
 
 
 def fire_bullets(alien_invasion_settings, screen, ship, bullets):
@@ -173,7 +183,8 @@ def change_fleet_direction(alien_invasion_settings, aliens):
     # Make the fleet go down and change its direction
     # by altering the fleet direction
     for alien in aliens.sprites():
-        alien.rect.y += alien_invasion_settings.fleet_drop_speed
+        alien.rect.y += float(alien_invasion_settings.fleet_drop_speed)
+        alien.rect.y = float(alien.rect.y)
     # Then we multiply by -1. If it is 1, then the value goes
     # to -1; if it is -1, the value goes to 1. It's the logical
     # way to go it

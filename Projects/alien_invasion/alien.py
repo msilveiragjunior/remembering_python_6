@@ -13,8 +13,8 @@ class Alien(Sprite):
         self.rect = self.image.get_rect()
         # Defining the alien position on the superior left side
         # of the screen
-        self.rect.x = self.rect.width
-        self.rect.y = self.rect.height
+        self.rect.x = float(self.rect.width)
+        self.rect.y = float(self.rect.height)
         self.alien_height = self.rect.y
         # Storing the position of the alien
         self.x = float(self.rect.x)

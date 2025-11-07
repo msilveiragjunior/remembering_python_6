@@ -50,7 +50,7 @@ def run_game():
         # bullets trajectory we'll be updated on the screen
         # by the update() method from the module sprite, from
         # pygame.
-        gf.update_bullets(bullets)
+        gf.update_bullets(aliens, bullets)
         # We have to update the position of the aliens as well.
         # So we'll call the method update_aliens, from the game_function
         # file.

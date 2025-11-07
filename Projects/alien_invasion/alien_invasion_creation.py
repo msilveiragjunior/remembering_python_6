@@ -187,3 +187,24 @@
 # Now we can make the fleet go down and change its direction
 # we'll do this by creating new functions, following the book
 # instructions
+
+# We'll make our spaceships shoot, and hit, the alien ships
+# to do that, we'll use the method sprite.groupcollide(),
+# so we can verify collisions between the members of the two
+# groups.
+# The method sprite.groupcollide(group1, group2, dokill1,
+#                                dokill2, collided = none) method find all
+# sprites that collide between two groups.
+# The collision is determined comparing the sprite.rect attribute
+# of each sprite.
+# Every sprite in group1, is added to a return dict. The value of each item()
+# is the list of sprites in group2 that intersect.
+# If either dokill argument is True, sprites from those groups will be
+# removed from their Group().
+# Now we'll follow the book to add the new code to the game; this new
+# code will calculate the intersection between the bullet and aliens.
+# If we hit one, both will disappear.
+
+# We've created the collision function. Now we need to repopulate
+# the fleet of aliens so, if we destroy all of them, they will
+# reappear.
