@@ -61,10 +61,12 @@ def start_game(alien_invasion_settings, screen, stats, sb,
     # Empty the aliens and bullets group
     aliens.empty()
     bullets.empty()
-    # Reinitialize the images from the score panel
+    # Reinitialize the images from the score panel and
+    # draw new ships.
     sb.prep_score()
     sb.prep_high_score()
     sb.prep_level()
+    sb.prep_ships()
     # Create a new fleet and centralize the spaceship
     create_fleet(alien_invasion_settings, screen, ship, aliens)
     ship.center_ship()
@@ -315,8 +317,8 @@ def change_fleet_direction(alien_invasion_settings, aliens):
     alien_invasion_settings.fleet_direction *= -1
 
 
-def check_aliens_bottom(alien_invasion_settings, stats, screen, ship, aliens,
-                        bullets):
+def check_aliens_bottom(alien_invasion_settings, stats, sb, screen, ship,
+                        aliens, bullets):
     # Now we'll create a variable the will inherit the width and length of
     # the screen
     screen_rect = screen.get_rect()
@@ -327,12 +329,12 @@ def check_aliens_bottom(alien_invasion_settings, stats, screen, ship, aliens,
         # This will deal with the sprites from the aliens.
         if alien.rect.bottom >= screen_rect.bottom:
             # calls shit_hit() function
-            ship_hit(alien_invasion_settings, stats, screen, ship, aliens,
+            ship_hit(alien_invasion_settings, stats, sb, screen, ship, aliens,
                      bullets)
             break
 
 
-def update_aliens(alien_invasion_settings, stats, screen, ship, aliens,
+def update_aliens(alien_invasion_settings, stats, sb, screen, ship, aliens,
                   bullets):
     # Update the position of all aliens from the fleet
     # Now it also checks if the fleet is on the border of the screen
@@ -340,14 +342,14 @@ def update_aliens(alien_invasion_settings, stats, screen, ship, aliens,
     aliens.update()
     # Check if there's any collisions between the ship and the aliens
     if pygame.sprite.spritecollideany(ship, aliens):
-        ship_hit(alien_invasion_settings, stats, screen, ship, aliens,
+        ship_hit(alien_invasion_settings, stats, sb, screen, ship, aliens,
                  bullets)
     # Check if any alien has hit the bottom of the screen
-    check_aliens_bottom(alien_invasion_settings, stats, screen, ship, aliens,
-                        bullets)
+    check_aliens_bottom(alien_invasion_settings, stats, sb, screen, ship,
+                        aliens, bullets)
 
 
-def ship_hit(alien_invasion_settings, stats, screen, ship, aliens,
+def ship_hit(alien_invasion_settings, stats, sb, screen, ship, aliens,
              bullets):
     # We'll implement the end of the game here, by seeing if the
     # ship has been hit 'n' times.
@@ -355,6 +357,8 @@ def ship_hit(alien_invasion_settings, stats, screen, ship, aliens,
         # -1 to ships_left
         stats.ships_left -= 1
 
+        # Here we'll update the number of ships left
+        sb.prep_ships()
         # Empty the list of aliens and bullets
         aliens.empty()
         bullets.empty()

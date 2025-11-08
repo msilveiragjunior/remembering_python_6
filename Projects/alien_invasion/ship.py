@@ -1,9 +1,14 @@
 import pygame
+from pygame.sprite import Sprite
 
 
-class Ship():
-
+class Ship(Sprite):
+    # Here we're making ship a daughter class of the
+    # Sprite class from pygame.
     def __init__(self, alien_invasion_settings, screen):
+        super(Ship, self).__init__()
+        # Here we are making sure that ship inherits
+        # The Sprite class methods.
         # It will initialize the initial position
         # of the ship
         self.screen = screen

@@ -1,4 +1,6 @@
 import pygame.font
+from pygame.sprite import Group
+from ship import Ship
 
 
 class Scoreboard():
@@ -22,6 +24,9 @@ class Scoreboard():
         # Calls the prep_level() to draw and render
         # its image bellow the score image rendered
         self.prep_level()
+        # Calls the prep_ships() to draw and
+        # render the images of the ships left
+        self.prep_ships()
 
     def prep_high_score(self):
         a_i = self.alien_invasion_settings
@@ -77,6 +82,29 @@ class Scoreboard():
         self.level_rect.right = self.score_rect.right
         self.level_rect.top = self.score_rect.bottom + 10
 
+    def prep_ships(self):
+        a_i = self.alien_invasion_settings
+        # We'll instantiate the number of ships in a Group(),
+        # as the Group() class is designed to deal with multiple
+        # instances of objects.
+        self.ships = Group()
+        # Here we'll add the objects, from the Group() class ships,
+        # to the self.ships variable. So all the objects will be stored
+        # in it. We'll add the number of ships based on the ships_left
+        # from the Stats class, from game_stats.
+        for ship_number in range(self.stats.ships_left):
+            ship = Ship(a_i, self.screen)
+            ship.rect.x = 10
+            # Here we add 10 pixels to where the ship should be shown
+            # on the y axis.
+            ship.rect.y = 10 + ship_number * ship.rect.height
+            # With this formula we add 10 pixels to the right plus
+            # the number of the ships times the width of a ship,
+            # so we'll have the necessary space to show them.
+            self.ships.add(ship)
+            # Here we add the object ship from the class Ship into
+            # the group ships, so all we'll be in the class Group().
+
     def show_score(self):
         # We need to draw the score on the screen
         # So we'll use the blit() method from pygame
@@ -88,3 +116,8 @@ class Scoreboard():
         # We'll draw the level bellow the latest high score, on the
         # top right corner of the screen.
         self.screen.blit(self.level_image, self.level_rect)
+        # Draw the ships from the prep_ships.
+        self.ships.draw(self.screen)
+        # We are using the draw() method to draw the ships, as we
+        # have all the attributes of a ship to draw and render the images
+        # of the ships

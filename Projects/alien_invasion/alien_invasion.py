@@ -78,7 +78,7 @@ def run_game():
             # We have to update the position of the aliens as well.
             # So we'll call the method update_aliens, from the game_function
             # file.
-            gf.update_aliens(alien_invasion_settings, stats,
+            gf.update_aliens(alien_invasion_settings, stats, sb,
                              screen, ship, aliens, bullets)
         gf.update_screen(alien_invasion_settings, screen, stats, sb, ship,
                          aliens, bullets, play_button)

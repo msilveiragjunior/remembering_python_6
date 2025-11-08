@@ -347,3 +347,16 @@
 # every time the game reinitialize.
 # We'll also need to update the scoreboard, the game_function, and the
 # alien_invasion files.
+
+# --- Showing the number of spaceships left --- #
+# Lastly, we'll show the number of spaceships left
+# for the player in the game.
+# This will end the alien invasion project of the book
+# Python Crash Course, from Eric Matthes.
+
+# Now we've finished the game and made a few adjustments,
+# due to refactoring choices and image choices, so we
+# did not follow the book in all it's instances.
+# But we followed all the logic gave by it.
+# Thanks to Eric Matthes, this project is done.
+# ------------------------------------------------------------------- #
