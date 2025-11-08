@@ -339,3 +339,11 @@
 # Lets create the highest score counter. So any player can see
 # if he was reached it or gone through it.
 # We'll follow Eric Matthes book.
+
+# --- Showing the level of the game --- #
+# We can, now, show the level that we are, or the loop that we've gone through,
+# by killing all the aliens, in the game.
+# We need a new attribute inside game_stats that will reset
+# every time the game reinitialize.
+# We'll also need to update the scoreboard, the game_function, and the
+# alien_invasion files.

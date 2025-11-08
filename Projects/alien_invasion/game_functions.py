@@ -8,7 +8,7 @@ from alien import Alien
 from time import sleep
 
 
-def check_events(alien_invasion_settings, screen, stats, play_button,
+def check_events(alien_invasion_settings, screen, stats, sb, play_button,
                  ship, aliens, bullets):
     for event in pygame.event.get():
         # Here we'll watch all the events from the keyboard
@@ -25,7 +25,7 @@ def check_events(alien_invasion_settings, screen, stats, play_button,
         # the constant K_RIGHT.
         if event.type == pygame.KEYDOWN:
             check_keydown_events(event, alien_invasion_settings, screen,
-                                 stats, ship, aliens, bullets)
+                                 stats, sb, ship, aliens, bullets)
         elif event.type == pygame.KEYUP:
             check_keyup_events(event, ship)
         # By doing this, we'll check the functions of
@@ -43,12 +43,12 @@ def check_events(alien_invasion_settings, screen, stats, play_button,
             # This function will check if mouse, when clicked, collides
             # with the play button rect. If it does it, we'll set the
             # game_active flag to True, beginning the game.
-            check_play_button(alien_invasion_settings, screen, stats,
+            check_play_button(alien_invasion_settings, screen, stats, sb,
                               play_button, ship, aliens, bullets, mouse_x,
                               mouse_y)
 
 
-def start_game(alien_invasion_settings, screen, stats,
+def start_game(alien_invasion_settings, screen, stats, sb,
                ship, aliens, bullets):
     # Reinitialize the game attributes
     alien_invasion_settings.initialize_dynamic_settings()
@@ -61,13 +61,16 @@ def start_game(alien_invasion_settings, screen, stats,
     # Empty the aliens and bullets group
     aliens.empty()
     bullets.empty()
-
+    # Reinitialize the images from the score panel
+    sb.prep_score()
+    sb.prep_high_score()
+    sb.prep_level()
     # Create a new fleet and centralize the spaceship
     create_fleet(alien_invasion_settings, screen, ship, aliens)
     ship.center_ship()
 
 
-def check_play_button(alien_invasion_settings, screen, stats,
+def check_play_button(alien_invasion_settings, screen, stats, sb,
                       play_button, ship, aliens, bullets, mouse_x, mouse_y):
     button_click = play_button.rect.collidepoint(mouse_x, mouse_y)
     if button_click and not stats.game_active:
@@ -85,12 +88,12 @@ def check_play_button(alien_invasion_settings, screen, stats,
         # # Create a new fleet and centralize the spaceship
         # create_fleet(alien_invasion_settings, screen, ship, aliens)
         # ship.center_ship()
-        start_game(alien_invasion_settings, screen, stats,
+        start_game(alien_invasion_settings, screen, stats, sb,
                    ship, aliens, bullets)
 
 
 def check_keydown_events(event, alien_invasion_settings, screen,
-                         stats, ship, aliens, bullets):
+                         stats, sb, ship, aliens, bullets):
     if event.key == pygame.K_RIGHT:
         # If the attribute defined before in the for
         # loop - i.e. event - .key is equal to the constant K_RIGHT,
@@ -112,7 +115,7 @@ def check_keydown_events(event, alien_invasion_settings, screen,
     # Here we'll start the game if the player press the 'P' button
     elif event.key == pygame.K_p and not stats.game_active:
         start_game(alien_invasion_settings, screen,
-                   stats, ship, aliens, bullets)
+                   stats, sb, ship, aliens, bullets)
 
 
 def check_keyup_events(event, ship):
@@ -224,6 +227,12 @@ def check_bullet_alien_collisions(alien_invasion_settings, screen, stats, sb,
         # Destroys empty bullets and creates a new fleet
         bullets.empty()
         alien_invasion_settings.increase_speed()
+
+        # We'll sum the level + 1, to show that all the aliens
+        # were destroyed. We can do this inside this if conditional,
+        # because it checks if the aliens.Group() is empty.
+        stats.level += 1
+        sb.prep_level()
         # Here we call the function increase_speed, so every time
         # the player kills every alien, the speedup_scale will
         # multiply the dynamic attributes, making the game harder.

@@ -19,6 +19,9 @@ class Scoreboard():
         # Calls prep_high_score to draw and render its
         # image on the screen
         self.prep_high_score()
+        # Calls the prep_level() to draw and render
+        # its image bellow the score image rendered
+        self.prep_level()
 
     def prep_high_score(self):
         a_i = self.alien_invasion_settings
@@ -62,6 +65,18 @@ class Scoreboard():
         # PS: remember, on the pygame, the y grows from the top to
         # the bottom.
 
+    def prep_level(self):
+        a_i = self.alien_invasion_settings
+        # Lets render the stats.level into level_image, to be shown
+        # over the bellow the score of the game.
+        self.level_image = self.font.render(str(self.stats.level), True,
+                                            self.text_color, a_i.bg_color)
+        # Here we'll place the level_image 10 pixels below
+        # the score image rendered
+        self.level_rect = self.level_image.get_rect()
+        self.level_rect.right = self.score_rect.right
+        self.level_rect.top = self.score_rect.bottom + 10
+
     def show_score(self):
         # We need to draw the score on the screen
         # So we'll use the blit() method from pygame
@@ -70,3 +85,6 @@ class Scoreboard():
         # Now we need to draw the highest, or the actual score, on the
         # screen
         self.screen.blit(self.high_score_image, self.high_score_rect)
+        # We'll draw the level bellow the latest high score, on the
+        # top right corner of the screen.
+        self.screen.blit(self.level_image, self.level_rect)

@@ -13,3 +13,6 @@ class GameStats():
         self.score = 0
         # We put self.score here because it will run every time
         # the game initialize.
+        # The level score will reinitialize every time the player
+        # gets killed.
+        self.level = 1
