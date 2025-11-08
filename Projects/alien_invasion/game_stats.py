@@ -5,6 +5,8 @@ class GameStats():
         # Initialize the game in an inactive state
         self.game_active = False
         self.reset_stats()
+        # The highest score will never be reinitialized
+        self.high_score = 0
 
     def reset_stats(self):
         self.ships_left = self.alien_invasion_settings.ship_limit

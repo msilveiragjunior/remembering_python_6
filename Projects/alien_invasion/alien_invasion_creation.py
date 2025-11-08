@@ -334,3 +334,8 @@
 # Lets round up the scores to it's nearest ten. We'll also format the number,
 # using the curly braces {:,} to place a comma after every third of a decimal.
 # Or, in this case, every third digit in a string.
+
+# --- Highest score --- #
+# Lets create the highest score counter. So any player can see
+# if he was reached it or gone through it.
+# We'll follow Eric Matthes book.

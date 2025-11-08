@@ -129,6 +129,13 @@ def check_keyup_events(event, ship):
         # left arrow has stopped.
 
 
+def check_high_score(stats, sb):
+    # We'll check if there's a new high score
+    if stats.score > stats.high_score:
+        stats.high_score = stats.score
+        sb.prep_high_score()
+
+
 def update_screen(alien_invasion_settings, screen, stats, sb, ship, aliens,
                   bullets, play_button):
     # This will update the screen to the color that we choose
@@ -209,7 +216,9 @@ def check_bullet_alien_collisions(alien_invasion_settings, screen, stats, sb,
             # to the stats.score object that've instantiated.
             # the prep_score() method, from sb, will render the new
             # score on the screen.
-
+        check_high_score(stats, sb)
+        # We need to check the highest score every time an alien
+        # is hit. We'll do that every time an alien has been hit.
     # Here we can create a new fleet if aliens.Group() is empty.
     if len(aliens) == 0:
         # Destroys empty bullets and creates a new fleet
