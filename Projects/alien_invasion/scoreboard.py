@@ -20,7 +20,13 @@ class Scoreboard():
     def prep_score(self):
         a_i = self.alien_invasion_settings
         # Render the str points into an image
-        score_str = str(self.stats.score)
+        rounded_score = int(round(self.stats.score, -1))
+        # When we round up to a negative number, it'll
+        # round the number to its nearest 10 (-1), 100 (-2), or 1000 (-3)
+        # multiple, and so on.
+        score_str = "{:,}".format(rounded_score)
+        # By using this formatting way to format a string, we'll
+        # place a comma every third number from right to left.
         self.score_image = self.font.render(score_str, True, self.text_color,
                                             a_i.bg_color)
 

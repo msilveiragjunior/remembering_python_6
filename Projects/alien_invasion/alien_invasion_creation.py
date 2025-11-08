@@ -330,3 +330,7 @@
 # Lets alter the settings function to have a new scale for the score,
 # and alter the increase_speed function to alter the alien_points taking
 # into account the score_scale.
+
+# Lets round up the scores to it's nearest ten. We'll also format the number,
+# using the curly braces {:,} to place a comma after every third of a decimal.
+# Or, in this case, every third digit in a string.
