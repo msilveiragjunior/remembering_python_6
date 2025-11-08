@@ -22,8 +22,12 @@ class Settings():
         # Speed of the drop
         self.fleet_drop_speed = 1
 
-        # The rate of the game speed
+        # The variable that holds the increasing rate of the game speed
         self.speedup_scale = 1.1
+
+        # The variable that holds the increasing rate of the score
+        # for each level.
+        self.score_scale = 1.5
 
         # This will call the function initialize_dynamic_settings().
         # It'll make possible for the game to change difficulty.
@@ -50,3 +54,4 @@ class Settings():
         self.ship_speed_factor *= self.speedup_scale
         self.bullet_speed_factor *= self.speedup_scale
         self.alien_speed_factor *= self.speedup_scale
+        self.alien_points = int(self.score_scale * self.alien_points)

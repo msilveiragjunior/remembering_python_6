@@ -321,3 +321,12 @@
 # Now, if two bullets collide with aliens on the same loop, only
 # one alien hit will be summed to the score. We can do it by modifying
 # the game_functions file to properly check for all collisions.
+
+# We can, now, thinker with the difficulty settings.
+# Lets follow the book and make the points higher as the game becomes
+# harder.
+# The speed_up scale may not be rewarding enough to the players,
+# so we must create a new scale only for the score.
+# Lets alter the settings function to have a new scale for the score,
+# and alter the increase_speed function to alter the alien_points taking
+# into account the score_scale.
