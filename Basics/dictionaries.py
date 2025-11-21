@@ -103,6 +103,6 @@ for user_info in users.values():
 
 # This way we can get the information nested inside the original
 # key, by attributing the key information - i.e. the value of the
-# first key to a variable and, then, showing it's value in a for
-# loop, as it's value is substituted after the first for loop
+# first key to a variable and, then, showing its value in a for
+# loop, as its value is substituted after the first for loop
 # iteration
