@@ -18,5 +18,5 @@ with open(file_01) as file_obj:
 # The technique is simple: we rewrite the code to make it
 # more manageable and readable.
 # The compartmentalization is fundamental when writing
-# a clean code; a easy and understandable code that is
+# a clean code; an easy and understandable code that is
 # easy to maintain
