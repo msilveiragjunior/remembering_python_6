@@ -356,7 +356,7 @@
 
 # Now we've finished the game and made a few adjustments,
 # due to refactoring choices and image choices, so we
-# did not follow the book in all it's instances.
+# did not follow the book in all its instances.
 # But we followed all the logic gave by it.
 # Thanks to Eric Matthes, this project is done.
 # ------------------------------------------------------------------- #
